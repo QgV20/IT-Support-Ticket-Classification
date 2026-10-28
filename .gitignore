@@ -1,0 +1,13 @@
+# Mô hình đã huấn luyện (tạo lại bằng train_baseline.py)
+*.joblib
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# Hệ điều hành / IDE
+.DS_Store
+.vscode/

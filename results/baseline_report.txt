@@ -1,0 +1,33 @@
+=== TEST DAY DU (9565 dong) ===
+Accuracy=0.8565 | Macro F1=0.8567 | 0.040 ms/dong
+                       precision    recall  f1-score   support
+
+               Access      0.901     0.884     0.892      1425
+Administrative rights      0.680     0.847     0.754       352
+           HR Support      0.894     0.846     0.869      2182
+             Hardware      0.860     0.817     0.838      2722
+     Internal Project      0.835     0.922     0.877       424
+        Miscellaneous      0.799     0.867     0.832      1412
+             Purchase      0.927     0.907     0.917       493
+              Storage      0.847     0.905     0.875       555
+
+             accuracy                          0.856      9565
+            macro avg      0.843     0.874     0.857      9565
+         weighted avg      0.860     0.856     0.857      9565
+
+=== TEST_SAMPLE (cung bo voi LLM) (400 dong) ===
+Accuracy=0.8575 | Macro F1=0.8611 | 0.052 ms/dong
+                       precision    recall  f1-score   support
+
+               Access      0.855     0.797     0.825        59
+Administrative rights      0.682     1.000     0.811        15
+           HR Support      0.905     0.835     0.869        91
+             Hardware      0.866     0.851     0.858       114
+     Internal Project      0.773     0.944     0.850        18
+        Miscellaneous      0.812     0.881     0.846        59
+             Purchase      1.000     0.810     0.895        21
+              Storage      0.917     0.957     0.936        23
+
+             accuracy                          0.858       400
+            macro avg      0.851     0.884     0.861       400
+         weighted avg      0.864     0.858     0.858       400
