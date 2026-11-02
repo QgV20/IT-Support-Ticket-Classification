@@ -1,0 +1,9 @@
+﻿Topic_group,count,mean,median,min,max
+Access,5699,35.4,22.0,3,830
+Administrative rights,1408,50.3,30.0,3,981
+HR Support,8729,37.76,24.0,3,817
+Hardware,10889,56.51,32.0,3,931
+Internal Project,1695,37.62,24.0,4,876
+Miscellaneous,5646,42.38,27.0,3,871
+Purchase,1970,34.81,30.0,3,346
+Storage,2222,34.14,21.0,5,497
