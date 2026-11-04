@@ -97,3 +97,76 @@ for i, document in enumerate(hr_samples["Document"], 1):
 
 print("\nAnalysis completed.")
 print("Results saved to results/")
+
+# ==========================================
+# TẠO TẬP DỮ LIỆU PHÁT TRIỂN
+# ==========================================
+
+# Giữ lại chỉ số dòng gốc để có thể đối chiếu kết quả
+dev_source = df.reset_index().rename(
+    columns={"index": "ticket_id"}
+)
+
+# Loại bỏ các mẫu HR Support đã xem trong Ngày 5
+hr_sample_file = RESULTS_DIR / "hr_support_samples.csv"
+
+if hr_sample_file.exists():
+    inspected = pd.read_csv(hr_sample_file)
+    dev_source = dev_source[
+        ~dev_source["Document"].isin(inspected["Document"])
+    ]
+
+# Loại bỏ các ticket trùng nội dung với tập test_sample
+test_sample_file = PROJECT_ROOT / "data" / "test_sample.csv"
+test_sample = pd.read_csv(test_sample_file)
+
+dev_source = dev_source[
+    ~dev_source["Document"].isin(test_sample["Document"])
+]
+
+# Loại bỏ dữ liệu thiếu và ticket trùng nội dung
+dev_source = dev_source.dropna(
+    subset=["Document", "Topic_group"]
+).drop_duplicates(subset=["Document"])
+
+# Lấy ngẫu nhiên 10 ticket cho mỗi nhóm nhãn
+# random_state=42 giúp tái lập kết quả khi chạy lại
+groups = []
+
+for category in sorted(dev_source["Topic_group"].unique()):
+    group = dev_source[
+        dev_source["Topic_group"] == category
+    ]
+
+    # Kiểm tra mỗi nhóm có đủ số lượng mẫu hay không
+    if len(group) < 10:
+        raise ValueError(
+            f"Không đủ 10 ticket cho nhóm {category}"
+        )
+
+    groups.append(
+        group.sample(n=10, random_state=42)
+    )
+
+# Gộp các nhóm và sắp xếp theo vị trí dòng gốc
+dev_sample = pd.concat(groups).sort_values("ticket_id")
+
+# Chỉ giữ các cột cần thiết cho thực nghiệm
+dev_sample = dev_sample[
+    ["ticket_id", "Document", "Topic_group"]
+]
+
+# Lưu tập phát triển vào thư mục results
+dev_output = RESULTS_DIR / "llm_dev_sample80.csv"
+
+dev_sample.to_csv(
+    dev_output,
+    index=False,
+    encoding="utf-8-sig"
+)
+
+# Hiển thị kết quả kiểm tra
+print("\nTẬP DỮ LIỆU PHÁT TRIỂN - NGÀY 7")
+print("Tổng số ticket:", len(dev_sample))
+print(dev_sample["Topic_group"].value_counts())
+print("Đã lưu tại:", dev_output)
