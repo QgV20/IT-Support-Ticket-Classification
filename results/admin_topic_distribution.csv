@@ -1,0 +1,65 @@
+﻿Category,Topic,Count,Total,Percentage
+Access,windows_upgrade,6,5669,0.11
+Access,software_install,502,5669,8.86
+Access,outlook_email,33,5669,0.58
+Access,administrator_privilege,213,5669,3.76
+Access,password_login,912,5669,16.09
+Access,server_restart,86,5669,1.52
+Access,storage_drive,159,5669,2.8
+Access,printer_device,103,5669,1.82
+Administrative rights,windows_upgrade,321,1378,23.29
+Administrative rights,software_install,409,1378,29.68
+Administrative rights,outlook_email,389,1378,28.23
+Administrative rights,administrator_privilege,37,1378,2.69
+Administrative rights,password_login,90,1378,6.53
+Administrative rights,server_restart,158,1378,11.47
+Administrative rights,storage_drive,134,1378,9.72
+Administrative rights,printer_device,136,1378,9.87
+HR Support,windows_upgrade,8,8679,0.09
+HR Support,software_install,433,8679,4.99
+HR Support,outlook_email,287,8679,3.31
+HR Support,administrator_privilege,309,8679,3.56
+HR Support,password_login,6,8679,0.07
+HR Support,server_restart,64,8679,0.74
+HR Support,storage_drive,293,8679,3.38
+HR Support,printer_device,128,8679,1.47
+Hardware,windows_upgrade,94,10859,0.87
+Hardware,software_install,1225,10859,11.28
+Hardware,outlook_email,127,10859,1.17
+Hardware,administrator_privilege,437,10859,4.02
+Hardware,password_login,250,10859,2.3
+Hardware,server_restart,729,10859,6.71
+Hardware,storage_drive,405,10859,3.73
+Hardware,printer_device,1526,10859,14.05
+Internal Project,windows_upgrade,0,1665,0.0
+Internal Project,software_install,68,1665,4.08
+Internal Project,outlook_email,2,1665,0.12
+Internal Project,administrator_privilege,17,1665,1.02
+Internal Project,password_login,0,1665,0.0
+Internal Project,server_restart,5,1665,0.3
+Internal Project,storage_drive,10,1665,0.6
+Internal Project,printer_device,19,1665,1.14
+Miscellaneous,windows_upgrade,9,5616,0.16
+Miscellaneous,software_install,403,5616,7.18
+Miscellaneous,outlook_email,82,5616,1.46
+Miscellaneous,administrator_privilege,165,5616,2.94
+Miscellaneous,password_login,9,5616,0.16
+Miscellaneous,server_restart,70,5616,1.25
+Miscellaneous,storage_drive,72,5616,1.28
+Miscellaneous,printer_device,129,5616,2.3
+Purchase,windows_upgrade,1,1940,0.05
+Purchase,software_install,710,1940,36.6
+Purchase,outlook_email,77,1940,3.97
+Purchase,administrator_privilege,1568,1940,80.82
+Purchase,password_login,3,1940,0.15
+Purchase,server_restart,2,1940,0.1
+Purchase,storage_drive,29,1940,1.49
+Purchase,printer_device,316,1940,16.29
+Storage,windows_upgrade,1,2192,0.05
+Storage,software_install,90,2192,4.11
+Storage,outlook_email,601,2192,27.42
+Storage,administrator_privilege,75,2192,3.42
+Storage,password_login,15,2192,0.68
+Storage,server_restart,43,2192,1.96
+Storage,storage_drive,300,2192,13.69
+Storage,printer_device,15,2192,0.68
