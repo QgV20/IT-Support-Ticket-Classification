@@ -6,86 +6,133 @@ from pathlib import Path
 import pandas as pd
 from sklearn.metrics import accuracy_score, f1_score, recall_score
 
-from llm_classifier import classify_ticket as classify_v3
 from llm_classifier_v2 import classify_ticket as classify_v2
+from llm_classifier import classify_ticket as classify_v3
+from llm_classifier_v4 import classify_ticket as classify_v4
 
-# Đường dẫn thư mục gốc của project
+# Thiết lập đường dẫn của dự án
 ROOT = Path(__file__).resolve().parent.parent
 RESULTS = ROOT / "results"
-INPUT_FILE = RESULTS / "llm_dev_sample80.csv"
 
-# Hai phiên bản sử dụng cùng mô hình Qwen2.5:3B
 MODEL_NAME = "qwen2.5:3b"
 
 CLASSIFIERS = {
     "v2": classify_v2,
     "v3": classify_v3,
+    "v4": classify_v4,
+}
+
+DATASETS = {
+    "dev80": RESULTS / "llm_dev_sample80.csv",
+    "validation160": RESULTS / "llm_validation_sample160.csv",
+}
+
+EXPECTED_SIZES = {
+    "dev80": 80,
+    "validation160": 160,
 }
 
 
 def main():
-    # Cho phép chọn phiên bản khi chạy bằng Terminal
+    # Đọc các tham số từ Terminal
     parser = argparse.ArgumentParser(
-        description="Đánh giá Prompt V2 hoặc V3"
+        description="Đánh giá các phiên bản Prompt V2, V3 và V4"
     )
 
     parser.add_argument(
         "--version",
-        choices=["v2", "v3"],
+        choices=["v2", "v3", "v4"],
         required=True,
         help="Phiên bản prompt cần đánh giá",
     )
 
     parser.add_argument(
+        "--dataset",
+        choices=["dev80", "validation160"],
+        required=True,
+        help="Tập dữ liệu dùng để đánh giá",
+    )
+
+    parser.add_argument(
         "--force",
         action="store_true",
-        help="Cho phép ghi đè file kết quả đã tồn tại",
+        help="Cho phép ghi đè kết quả đã tồn tại",
     )
 
     args = parser.parse_args()
 
     version = args.version
+    dataset = args.dataset
+
     classifier = CLASSIFIERS[version]
+    input_file = DATASETS[dataset]
 
-    # Tạo tên file kết quả tương ứng với phiên bản
-    output_file = RESULTS / f"llm_dev_predictions_{version}.csv"
+    # Giữ nguyên quy ước tên file của Tuần 1
+    if dataset == "dev80":
+        output_file = (
+            RESULTS / f"llm_dev_predictions_{version}.csv"
+        )
+    else:
+        output_file = (
+            RESULTS / f"llm_validation_predictions_{version}.csv"
+        )
 
-    # Bảo vệ các kết quả đã chạy trước đó
+    # Không ghi đè những kết quả đã được lưu
     if output_file.exists() and not args.force:
-        print(f"File đã tồn tại: {output_file}")
-        print("Sử dụng --force nếu muốn chạy lại và ghi đè.")
+        print(f"File kết quả đã tồn tại: {output_file}")
+        print("Không ghi đè. Dùng --force nếu muốn chạy lại.")
         return
 
-    # Đọc tập phát triển cố định
-    df = pd.read_csv(INPUT_FILE)
+    # Đọc và kiểm tra dữ liệu
+    df = pd.read_csv(input_file)
 
-    required = {"ticket_id", "Document", "Topic_group"}
+    required_columns = {
+        "ticket_id",
+        "Document",
+        "Topic_group",
+    }
 
-    if not required.issubset(df.columns):
-        raise ValueError("Dữ liệu thiếu cột bắt buộc.")
+    if not required_columns.issubset(df.columns):
+        raise ValueError("Tập dữ liệu thiếu cột bắt buộc.")
 
-    if len(df) != 80:
-        raise ValueError("Tập phát triển phải có 80 ticket.")
+    if len(df) != EXPECTED_SIZES[dataset]:
+        raise ValueError("Số lượng ticket không đúng.")
 
     if df["ticket_id"].duplicated().any():
         raise ValueError("Phát hiện ticket_id trùng lặp.")
 
-    print("=" * 50)
+    if df[list(required_columns)].isna().any().any():
+        raise ValueError("Tập dữ liệu có giá trị thiếu.")
+
+    if df["Document"].duplicated().any():
+        raise ValueError("Phát hiện nội dung ticket trùng lặp.")
+
+    if df["Topic_group"].nunique() != 8:
+        raise ValueError("Tập dữ liệu phải có 8 nhóm nhãn.")
+
+    if not (
+        df["Topic_group"].value_counts()
+        == EXPECTED_SIZES[dataset] // 8
+    ).all():
+        raise ValueError("Phân bố nhãn không cân bằng.")
+
+    print("=" * 55)
     print(f"ĐÁNH GIÁ PROMPT {version.upper()}")
     print("Mô hình:", MODEL_NAME)
+    print("Tập dữ liệu:", dataset)
     print("Số ticket:", len(df))
-    print("=" * 50)
+    print("=" * 55)
 
     predictions = []
     statuses = []
     durations = []
 
-    # Phân loại lần lượt từng ticket
+    # Phân loại từng ticket bằng phiên bản đã chọn
     for i, document in enumerate(df["Document"], start=1):
         start = time.perf_counter()
 
         try:
-            prediction = classifier(document)
+            prediction = classifier(str(document))
             status = "success"
 
         except Exception as error:
@@ -104,7 +151,7 @@ def main():
             f"| {status} | {elapsed:.2f}s"
         )
 
-    # Lưu kết quả dự đoán
+    # Lưu dự đoán của từng ticket
     df["llm_prediction"] = predictions
     df["llm_status"] = statuses
     df["processing_time_seconds"] = durations
@@ -144,7 +191,7 @@ def main():
     print(f"Macro F1: {macro_f1:.4f}")
     print(f"HR Support Recall: {hr_recall:.4f}")
     print("Dự đoán thành công:", statuses.count("success"))
-    print("Đã lưu tại:", output_file)
+    print("File kết quả:", output_file)
 
 
 if __name__ == "__main__":
