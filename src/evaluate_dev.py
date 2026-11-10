@@ -9,6 +9,7 @@ from sklearn.metrics import accuracy_score, f1_score, recall_score
 from llm_classifier_v2 import classify_ticket as classify_v2
 from llm_classifier import classify_ticket as classify_v3
 from llm_classifier_v4 import classify_ticket as classify_v4
+from llm_classifier_v5 import classify_ticket as classify_v5
 
 # Thiết lập đường dẫn của dự án
 ROOT = Path(__file__).resolve().parent.parent
@@ -20,6 +21,7 @@ CLASSIFIERS = {
     "v2": classify_v2,
     "v3": classify_v3,
     "v4": classify_v4,
+    "v5": classify_v5,
 }
 
 DATASETS = {
@@ -36,12 +38,12 @@ EXPECTED_SIZES = {
 def main():
     # Đọc các tham số từ Terminal
     parser = argparse.ArgumentParser(
-        description="Đánh giá các phiên bản Prompt V2, V3 và V4"
+        description="Đánh giá các phiên bản Prompt V2, V3, V4 và V5"
     )
 
     parser.add_argument(
         "--version",
-        choices=["v2", "v3", "v4"],
+        choices=["v2", "v3", "v4", "v5"],
         required=True,
         help="Phiên bản prompt cần đánh giá",
     )
