@@ -14,13 +14,18 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
 INPUT_FILE = PROJECT_ROOT / "data" / "test_sample.csv"
 OUTPUT_DIR = PROJECT_ROOT / "results"
-OUTPUT_FILE = OUTPUT_DIR / "llm_predictions.csv"
+OUTPUT_FILE = OUTPUT_DIR / "llm_final_predictions_v3_400.csv"
 
 # Số ticket xử lý trong một lần chạy
-MAX_TICKETS = 10
+MAX_TICKETS = 400
 
 
 def main():
+        # Bảo vệ kết quả đánh giá đã lưu
+    if OUTPUT_FILE.exists():
+        raise FileExistsError(
+            f"File kết quả đã tồn tại: {OUTPUT_FILE}"
+        )
     if not INPUT_FILE.exists():
         print(f"Dataset not found: {INPUT_FILE}")
         sys.exit(1)
