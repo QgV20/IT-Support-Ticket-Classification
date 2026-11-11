@@ -1,6 +1,3 @@
-# Mô hình đã huấn luyện (tạo lại bằng train_baseline.py)
-*.joblib
-
 # Python
 __pycache__/
 *.pyc
