@@ -1,0 +1,401 @@
+﻿row_id,Topic_group,baseline_prediction,llm_prediction,llm_status,baseline_correct,llm_correct,comparison_case
+1,Access,Access,Access,success,True,True,both_correct
+2,Hardware,Hardware,Miscellaneous,success,True,False,baseline_only
+3,Miscellaneous,Miscellaneous,Miscellaneous,success,True,True,both_correct
+4,HR Support,Access,Access,success,False,False,both_wrong
+5,Miscellaneous,Miscellaneous,Miscellaneous,success,True,True,both_correct
+6,HR Support,HR Support,HR Support,success,True,True,both_correct
+7,Purchase,Purchase,Purchase,success,True,True,both_correct
+8,HR Support,HR Support,HR Support,success,True,True,both_correct
+9,HR Support,HR Support,Access,success,True,False,baseline_only
+10,Access,Access,Miscellaneous,success,True,False,baseline_only
+11,Hardware,Hardware,Miscellaneous,success,True,False,baseline_only
+12,Hardware,Hardware,Hardware,success,True,True,both_correct
+13,Purchase,Purchase,Purchase,success,True,True,both_correct
+14,Hardware,Hardware,Miscellaneous,success,True,False,baseline_only
+15,Access,Access,Access,success,True,True,both_correct
+16,Internal Project,Internal Project,Internal Project,success,True,True,both_correct
+17,Miscellaneous,Miscellaneous,Miscellaneous,success,True,True,both_correct
+18,Storage,Storage,Storage,success,True,True,both_correct
+19,HR Support,Administrative rights,Hardware,success,False,False,both_wrong
+20,Hardware,Access,Miscellaneous,success,False,False,both_wrong
+21,Miscellaneous,Miscellaneous,Miscellaneous,success,True,True,both_correct
+22,Hardware,Hardware,Hardware,success,True,True,both_correct
+23,HR Support,HR Support,Access,success,True,False,baseline_only
+24,Miscellaneous,Miscellaneous,HR Support,success,True,False,baseline_only
+25,Hardware,Hardware,Storage,success,True,False,baseline_only
+26,Storage,Storage,HR Support,success,True,False,baseline_only
+27,Internal Project,Internal Project,Internal Project,success,True,True,both_correct
+28,HR Support,HR Support,Access,success,True,False,baseline_only
+29,Internal Project,Internal Project,Miscellaneous,success,True,False,baseline_only
+30,Access,Hardware,Access,success,False,True,llm_only
+31,Storage,Storage,HR Support,success,True,False,baseline_only
+32,Access,Access,Miscellaneous,success,True,False,baseline_only
+33,Storage,Storage,Access,success,True,False,baseline_only
+34,Access,Miscellaneous,Access,success,False,True,llm_only
+35,Access,Access,Purchase,success,True,False,baseline_only
+36,Hardware,Hardware,Hardware,success,True,True,both_correct
+37,Miscellaneous,Miscellaneous,Miscellaneous,success,True,True,both_correct
+38,Hardware,Hardware,Miscellaneous,success,True,False,baseline_only
+39,HR Support,HR Support,HR Support,success,True,True,both_correct
+40,Miscellaneous,Miscellaneous,Access,success,True,False,baseline_only
+41,HR Support,HR Support,HR Support,success,True,True,both_correct
+42,Hardware,Storage,Administrative rights,success,False,False,both_wrong
+43,Hardware,Hardware,Internal Project,success,True,False,baseline_only
+44,Hardware,Hardware,Hardware,success,True,True,both_correct
+45,HR Support,HR Support,HR Support,success,True,True,both_correct
+46,HR Support,HR Support,Miscellaneous,success,True,False,baseline_only
+47,Hardware,HR Support,Access,success,False,False,both_wrong
+48,Hardware,Hardware,Hardware,success,True,True,both_correct
+49,Hardware,Hardware,Miscellaneous,success,True,False,baseline_only
+50,Access,Access,Miscellaneous,success,True,False,baseline_only
+51,Administrative rights,Administrative rights,Access,success,True,False,baseline_only
+52,Hardware,Hardware,Access,success,True,False,baseline_only
+53,Miscellaneous,Miscellaneous,HR Support,success,True,False,baseline_only
+54,Access,Access,Access,success,True,True,both_correct
+55,Access,Access,Access,success,True,True,both_correct
+56,HR Support,HR Support,HR Support,success,True,True,both_correct
+57,Hardware,Hardware,Hardware,success,True,True,both_correct
+58,Hardware,Hardware,Purchase,success,True,False,baseline_only
+59,Storage,Storage,Access,success,True,False,baseline_only
+60,Purchase,Purchase,Miscellaneous,success,True,False,baseline_only
+61,Hardware,Miscellaneous,Miscellaneous,success,False,False,both_wrong
+62,Access,Access,Access,success,True,True,both_correct
+63,HR Support,HR Support,HR Support,success,True,True,both_correct
+64,Hardware,Hardware,Miscellaneous,success,True,False,baseline_only
+65,Miscellaneous,Miscellaneous,HR Support,success,True,False,baseline_only
+66,Access,Access,Access,success,True,True,both_correct
+67,Access,Access,Access,success,True,True,both_correct
+68,Purchase,Purchase,Access,success,True,False,baseline_only
+69,HR Support,HR Support,HR Support,success,True,True,both_correct
+70,Hardware,Hardware,Miscellaneous,success,True,False,baseline_only
+71,HR Support,HR Support,Miscellaneous,success,True,False,baseline_only
+72,Hardware,Hardware,Miscellaneous,success,True,False,baseline_only
+73,HR Support,Administrative rights,HR Support,success,False,True,llm_only
+74,HR Support,HR Support,HR Support,success,True,True,both_correct
+75,Hardware,Hardware,Miscellaneous,success,True,False,baseline_only
+76,Access,Access,Access,success,True,True,both_correct
+77,Hardware,Miscellaneous,Miscellaneous,success,False,False,both_wrong
+78,HR Support,HR Support,Internal Project,success,True,False,baseline_only
+79,Hardware,Hardware,Hardware,success,True,True,both_correct
+80,HR Support,HR Support,Access,success,True,False,baseline_only
+81,Miscellaneous,Miscellaneous,Purchase,success,True,False,baseline_only
+82,Administrative rights,Administrative rights,Access,success,True,False,baseline_only
+83,Miscellaneous,Miscellaneous,Miscellaneous,success,True,True,both_correct
+84,Access,Access,Access,success,True,True,both_correct
+85,Purchase,Purchase,Purchase,success,True,True,both_correct
+86,Hardware,Hardware,Hardware,success,True,True,both_correct
+87,HR Support,Hardware,Miscellaneous,success,False,False,both_wrong
+88,Hardware,Hardware,Access,success,True,False,baseline_only
+89,Access,HR Support,HR Support,success,False,False,both_wrong
+90,HR Support,HR Support,HR Support,success,True,True,both_correct
+91,HR Support,HR Support,Access,success,True,False,baseline_only
+92,Access,Access,Miscellaneous,success,True,False,baseline_only
+93,Miscellaneous,Miscellaneous,HR Support,success,True,False,baseline_only
+94,Purchase,Purchase,Purchase,success,True,True,both_correct
+95,HR Support,HR Support,Purchase,success,True,False,baseline_only
+96,Miscellaneous,Miscellaneous,Purchase,success,True,False,baseline_only
+97,Hardware,Hardware,Miscellaneous,success,True,False,baseline_only
+98,Hardware,Hardware,Access,success,True,False,baseline_only
+99,Hardware,Hardware,Hardware,success,True,True,both_correct
+100,Access,Access,Access,success,True,True,both_correct
+101,Storage,Storage,Access,success,True,False,baseline_only
+102,HR Support,HR Support,HR Support,success,True,True,both_correct
+103,HR Support,HR Support,HR Support,success,True,True,both_correct
+104,Miscellaneous,Miscellaneous,HR Support,success,True,False,baseline_only
+105,Storage,Storage,Access,success,True,False,baseline_only
+106,Access,Access,Access,success,True,True,both_correct
+107,Access,Hardware,Miscellaneous,success,False,False,both_wrong
+108,HR Support,HR Support,HR Support,success,True,True,both_correct
+109,Purchase,Purchase,Hardware,success,True,False,baseline_only
+110,Hardware,Hardware,Miscellaneous,success,True,False,baseline_only
+111,Purchase,Purchase,Purchase,success,True,True,both_correct
+112,Hardware,Hardware,Hardware,success,True,True,both_correct
+113,Miscellaneous,Internal Project,Internal Project,success,False,False,both_wrong
+114,Access,Access,Access,success,True,True,both_correct
+115,Access,Access,Access,success,True,True,both_correct
+116,HR Support,HR Support,HR Support,success,True,True,both_correct
+117,Hardware,Hardware,Purchase,success,True,False,baseline_only
+118,Access,Access,Access,success,True,True,both_correct
+119,Storage,Storage,Access,success,True,False,baseline_only
+120,HR Support,Hardware,Miscellaneous,success,False,False,both_wrong
+121,Purchase,Purchase,Purchase,success,True,True,both_correct
+122,HR Support,Internal Project,Miscellaneous,success,False,False,both_wrong
+123,Storage,Storage,Miscellaneous,success,True,False,baseline_only
+124,Miscellaneous,Miscellaneous,HR Support,success,True,False,baseline_only
+125,HR Support,HR Support,HR Support,success,True,True,both_correct
+126,Administrative rights,Administrative rights,Hardware,success,True,False,baseline_only
+127,Hardware,Hardware,Hardware,success,True,True,both_correct
+128,Hardware,Hardware,Access,success,True,False,baseline_only
+129,Hardware,Hardware,Miscellaneous,success,True,False,baseline_only
+130,Internal Project,Internal Project,Internal Project,success,True,True,both_correct
+131,HR Support,HR Support,Access,success,True,False,baseline_only
+132,Access,Access,Access,success,True,True,both_correct
+133,HR Support,HR Support,HR Support,success,True,True,both_correct
+134,Purchase,Purchase,Purchase,success,True,True,both_correct
+135,HR Support,HR Support,HR Support,success,True,True,both_correct
+136,Miscellaneous,Miscellaneous,Miscellaneous,success,True,True,both_correct
+137,Internal Project,Internal Project,Miscellaneous,success,True,False,baseline_only
+138,Hardware,Hardware,Hardware,success,True,True,both_correct
+139,Hardware,Hardware,Hardware,success,True,True,both_correct
+140,Miscellaneous,Miscellaneous,HR Support,success,True,False,baseline_only
+141,Miscellaneous,Miscellaneous,Miscellaneous,success,True,True,both_correct
+142,Miscellaneous,Miscellaneous,Administrative rights,success,True,False,baseline_only
+143,HR Support,HR Support,HR Support,success,True,True,both_correct
+144,Hardware,Hardware,Access,success,True,False,baseline_only
+145,Hardware,Hardware,Hardware,success,True,True,both_correct
+146,HR Support,HR Support,Access,success,True,False,baseline_only
+147,HR Support,HR Support,Access,success,True,False,baseline_only
+148,Hardware,Hardware,Access,success,True,False,baseline_only
+149,Hardware,Hardware,HR Support,success,True,False,baseline_only
+150,Hardware,Hardware,Hardware,success,True,True,both_correct
+151,Miscellaneous,Miscellaneous,Miscellaneous,success,True,True,both_correct
+152,Hardware,Hardware,Storage,success,True,False,baseline_only
+153,Administrative rights,Administrative rights,Access,success,True,False,baseline_only
+154,HR Support,HR Support,HR Support,success,True,True,both_correct
+155,Purchase,Hardware,Miscellaneous,success,False,False,both_wrong
+156,HR Support,HR Support,HR Support,success,True,True,both_correct
+157,Miscellaneous,Miscellaneous,Miscellaneous,success,True,True,both_correct
+158,Administrative rights,Administrative rights,Storage,success,True,False,baseline_only
+159,Hardware,Hardware,Miscellaneous,success,True,False,baseline_only
+160,Hardware,Hardware,Hardware,success,True,True,both_correct
+161,Miscellaneous,Miscellaneous,HR Support,success,True,False,baseline_only
+162,Administrative rights,Administrative rights,Access,success,True,False,baseline_only
+163,Access,Access,Miscellaneous,success,True,False,baseline_only
+164,Hardware,Administrative rights,Access,success,False,False,both_wrong
+165,HR Support,HR Support,HR Support,success,True,True,both_correct
+166,Hardware,Hardware,Miscellaneous,success,True,False,baseline_only
+167,Hardware,Hardware,Access,success,True,False,baseline_only
+168,Storage,Storage,Miscellaneous,success,True,False,baseline_only
+169,Hardware,Hardware,Access,success,True,False,baseline_only
+170,Hardware,Hardware,Access,success,True,False,baseline_only
+171,Hardware,Hardware,Hardware,success,True,True,both_correct
+172,Storage,Storage,Access,success,True,False,baseline_only
+173,Internal Project,Internal Project,Miscellaneous,success,True,False,baseline_only
+174,Hardware,Hardware,Miscellaneous,success,True,False,baseline_only
+175,Hardware,Hardware,Miscellaneous,success,True,False,baseline_only
+176,HR Support,HR Support,HR Support,success,True,True,both_correct
+177,Hardware,Miscellaneous,Miscellaneous,success,False,False,both_wrong
+178,Hardware,Hardware,HR Support,success,True,False,baseline_only
+179,Hardware,Hardware,Hardware,success,True,True,both_correct
+180,Internal Project,Internal Project,Internal Project,success,True,True,both_correct
+181,Hardware,Hardware,Access,success,True,False,baseline_only
+182,Hardware,Hardware,Storage,success,True,False,baseline_only
+183,Hardware,Hardware,Access,success,True,False,baseline_only
+184,HR Support,HR Support,HR Support,success,True,True,both_correct
+185,Hardware,Access,Miscellaneous,success,False,False,both_wrong
+186,Miscellaneous,Miscellaneous,Access,success,True,False,baseline_only
+187,HR Support,HR Support,HR Support,success,True,True,both_correct
+188,Miscellaneous,Miscellaneous,Miscellaneous,success,True,True,both_correct
+189,Hardware,Hardware,Hardware,success,True,True,both_correct
+190,Administrative rights,Administrative rights,Access,success,True,False,baseline_only
+191,Administrative rights,Administrative rights,Hardware,success,True,False,baseline_only
+192,Hardware,HR Support,Miscellaneous,success,False,False,both_wrong
+193,Hardware,Hardware,Hardware,success,True,True,both_correct
+194,Access,Access,Miscellaneous,success,True,False,baseline_only
+195,Access,Access,Access,success,True,True,both_correct
+196,Miscellaneous,Miscellaneous,Purchase,success,True,False,baseline_only
+197,HR Support,HR Support,Miscellaneous,success,True,False,baseline_only
+198,Internal Project,Internal Project,HR Support,success,True,False,baseline_only
+199,HR Support,HR Support,Access,success,True,False,baseline_only
+200,HR Support,HR Support,Access,success,True,False,baseline_only
+201,Hardware,Hardware,Miscellaneous,success,True,False,baseline_only
+202,Access,Administrative rights,Miscellaneous,success,False,False,both_wrong
+203,HR Support,HR Support,HR Support,success,True,True,both_correct
+204,Miscellaneous,Miscellaneous,Hardware,success,True,False,baseline_only
+205,Miscellaneous,Hardware,Internal Project,success,False,False,both_wrong
+206,Access,Access,Access,success,True,True,both_correct
+207,Hardware,Administrative rights,Access,success,False,False,both_wrong
+208,HR Support,HR Support,HR Support,success,True,True,both_correct
+209,Access,Access,Miscellaneous,success,True,False,baseline_only
+210,Access,Access,Miscellaneous,success,True,False,baseline_only
+211,Miscellaneous,Miscellaneous,Miscellaneous,success,True,True,both_correct
+212,Miscellaneous,Miscellaneous,Access,success,True,False,baseline_only
+213,Miscellaneous,Miscellaneous,HR Support,success,True,False,baseline_only
+214,Storage,Storage,Miscellaneous,success,True,False,baseline_only
+215,Miscellaneous,Miscellaneous,Miscellaneous,success,True,True,both_correct
+216,HR Support,HR Support,HR Support,success,True,True,both_correct
+217,Storage,Storage,Internal Project,success,True,False,baseline_only
+218,HR Support,HR Support,HR Support,success,True,True,both_correct
+219,Hardware,HR Support,Hardware,success,False,True,llm_only
+220,HR Support,HR Support,HR Support,success,True,True,both_correct
+221,Hardware,Hardware,HR Support,success,True,False,baseline_only
+222,Purchase,Miscellaneous,Hardware,success,False,False,both_wrong
+223,HR Support,HR Support,Miscellaneous,success,True,False,baseline_only
+224,HR Support,Internal Project,HR Support,success,False,True,llm_only
+225,HR Support,Hardware,Access,success,False,False,both_wrong
+226,Miscellaneous,Miscellaneous,Miscellaneous,success,True,True,both_correct
+227,HR Support,HR Support,HR Support,success,True,True,both_correct
+228,Hardware,Hardware,Storage,success,True,False,baseline_only
+229,Storage,Storage,Access,success,True,False,baseline_only
+230,Access,Access,Access,success,True,True,both_correct
+231,Hardware,HR Support,HR Support,success,False,False,both_wrong
+232,Hardware,Hardware,Miscellaneous,success,True,False,baseline_only
+233,HR Support,HR Support,Access,success,True,False,baseline_only
+234,Internal Project,Internal Project,Internal Project,success,True,True,both_correct
+235,Hardware,Hardware,Miscellaneous,success,True,False,baseline_only
+236,Miscellaneous,Miscellaneous,Internal Project,success,True,False,baseline_only
+237,HR Support,HR Support,Access,success,True,False,baseline_only
+238,Hardware,Hardware,Miscellaneous,success,True,False,baseline_only
+239,Hardware,Hardware,Miscellaneous,success,True,False,baseline_only
+240,HR Support,Miscellaneous,HR Support,success,False,True,llm_only
+241,Internal Project,Internal Project,Internal Project,success,True,True,both_correct
+242,HR Support,HR Support,Access,success,True,False,baseline_only
+243,Access,Miscellaneous,Miscellaneous,success,False,False,both_wrong
+244,Miscellaneous,Miscellaneous,HR Support,success,True,False,baseline_only
+245,Miscellaneous,Miscellaneous,Miscellaneous,success,True,True,both_correct
+246,Miscellaneous,Miscellaneous,Access,success,True,False,baseline_only
+247,Access,Access,Miscellaneous,success,True,False,baseline_only
+248,Storage,Storage,Access,success,True,False,baseline_only
+249,HR Support,HR Support,Miscellaneous,success,True,False,baseline_only
+250,Access,Access,Access,success,True,True,both_correct
+251,Storage,Storage,Storage,success,True,True,both_correct
+252,Miscellaneous,Storage,Access,success,False,False,both_wrong
+253,Storage,Storage,Internal Project,success,True,False,baseline_only
+254,Miscellaneous,Miscellaneous,HR Support,success,True,False,baseline_only
+255,Purchase,Purchase,Purchase,success,True,True,both_correct
+256,Access,Access,Miscellaneous,success,True,False,baseline_only
+257,HR Support,HR Support,HR Support,success,True,True,both_correct
+258,Hardware,Hardware,Miscellaneous,success,True,False,baseline_only
+259,Access,Access,Miscellaneous,success,True,False,baseline_only
+260,HR Support,Hardware,Hardware,success,False,False,both_wrong
+261,Internal Project,Internal Project,Miscellaneous,success,True,False,baseline_only
+262,Internal Project,Internal Project,Miscellaneous,success,True,False,baseline_only
+263,Miscellaneous,Miscellaneous,Storage,success,True,False,baseline_only
+264,Purchase,Purchase,Purchase,success,True,True,both_correct
+265,Hardware,Hardware,Miscellaneous,success,True,False,baseline_only
+266,Internal Project,Internal Project,Miscellaneous,success,True,False,baseline_only
+267,HR Support,HR Support,HR Support,success,True,True,both_correct
+268,Administrative rights,Administrative rights,Hardware,success,True,False,baseline_only
+269,Storage,Storage,Storage,success,True,True,both_correct
+270,HR Support,Miscellaneous,Miscellaneous,success,False,False,both_wrong
+271,Access,Internal Project,Access,success,False,True,llm_only
+272,Hardware,Hardware,Hardware,success,True,True,both_correct
+273,HR Support,HR Support,HR Support,success,True,True,both_correct
+274,Miscellaneous,Miscellaneous,Miscellaneous,success,True,True,both_correct
+275,Access,Access,Internal Project,success,True,False,baseline_only
+276,Administrative rights,Administrative rights,Miscellaneous,success,True,False,baseline_only
+277,Hardware,Hardware,Miscellaneous,success,True,False,baseline_only
+278,Hardware,Hardware,Purchase,success,True,False,baseline_only
+279,Purchase,Access,Purchase,success,False,True,llm_only
+280,HR Support,HR Support,Miscellaneous,success,True,False,baseline_only
+281,Internal Project,Internal Project,Miscellaneous,success,True,False,baseline_only
+282,Hardware,Hardware,Miscellaneous,success,True,False,baseline_only
+283,Miscellaneous,Miscellaneous,HR Support,success,True,False,baseline_only
+284,HR Support,HR Support,Access,success,True,False,baseline_only
+285,Hardware,Access,Access,success,False,False,both_wrong
+286,Miscellaneous,Access,Internal Project,success,False,False,both_wrong
+287,Hardware,Hardware,Hardware,success,True,True,both_correct
+288,Access,Access,Access,success,True,True,both_correct
+289,Administrative rights,Administrative rights,Miscellaneous,success,True,False,baseline_only
+290,Access,Access,Miscellaneous,success,True,False,baseline_only
+291,HR Support,HR Support,Access,success,True,False,baseline_only
+292,Purchase,Purchase,Purchase,success,True,True,both_correct
+293,Miscellaneous,Miscellaneous,HR Support,success,True,False,baseline_only
+294,Internal Project,Internal Project,Internal Project,success,True,True,both_correct
+295,Miscellaneous,Miscellaneous,Purchase,success,True,False,baseline_only
+296,Access,Access,Access,success,True,True,both_correct
+297,HR Support,HR Support,HR Support,success,True,True,both_correct
+298,Miscellaneous,Miscellaneous,Miscellaneous,success,True,True,both_correct
+299,Purchase,Purchase,Purchase,success,True,True,both_correct
+300,Access,Access,Miscellaneous,success,True,False,baseline_only
+301,Storage,Storage,Storage,success,True,True,both_correct
+302,Hardware,Hardware,Miscellaneous,success,True,False,baseline_only
+303,HR Support,HR Support,HR Support,success,True,True,both_correct
+304,HR Support,HR Support,Access,success,True,False,baseline_only
+305,Miscellaneous,Miscellaneous,Miscellaneous,success,True,True,both_correct
+306,Hardware,Miscellaneous,Miscellaneous,success,False,False,both_wrong
+307,Hardware,Hardware,Hardware,success,True,True,both_correct
+308,Administrative rights,Administrative rights,Hardware,success,True,False,baseline_only
+309,Access,HR Support,HR Support,success,False,False,both_wrong
+310,Hardware,Hardware,Hardware,success,True,True,both_correct
+311,Hardware,Hardware,Access,success,True,False,baseline_only
+312,Hardware,Hardware,Hardware,success,True,True,both_correct
+313,Miscellaneous,Miscellaneous,HR Support,success,True,False,baseline_only
+314,Storage,Storage,Access,success,True,False,baseline_only
+315,Storage,Administrative rights,Access,success,False,False,both_wrong
+316,Hardware,Hardware,Hardware,success,True,True,both_correct
+317,Hardware,Hardware,Hardware,success,True,True,both_correct
+318,HR Support,HR Support,Hardware,success,True,False,baseline_only
+319,Hardware,Hardware,Miscellaneous,success,True,False,baseline_only
+320,Access,Hardware,Access,success,False,True,llm_only
+321,Internal Project,Internal Project,Internal Project,success,True,True,both_correct
+322,Internal Project,Internal Project,HR Support,success,True,False,baseline_only
+323,Hardware,Hardware,Miscellaneous,success,True,False,baseline_only
+324,Miscellaneous,HR Support,HR Support,success,False,False,both_wrong
+325,Access,Access,Miscellaneous,success,True,False,baseline_only
+326,Administrative rights,Administrative rights,Access,success,True,False,baseline_only
+327,Hardware,Hardware,Miscellaneous,success,True,False,baseline_only
+328,Access,Hardware,Access,success,False,True,llm_only
+329,Access,Access,Miscellaneous,success,True,False,baseline_only
+330,Miscellaneous,Miscellaneous,Access,success,True,False,baseline_only
+331,Hardware,Hardware,HR Support,success,True,False,baseline_only
+332,HR Support,HR Support,HR Support,success,True,True,both_correct
+333,Access,Miscellaneous,Miscellaneous,success,False,False,both_wrong
+334,Hardware,Hardware,Miscellaneous,success,True,False,baseline_only
+335,Hardware,Access,Miscellaneous,success,False,False,both_wrong
+336,Access,Access,Access,success,True,True,both_correct
+337,Hardware,Hardware,Miscellaneous,success,True,False,baseline_only
+338,Hardware,Hardware,Hardware,success,True,True,both_correct
+339,HR Support,HR Support,HR Support,success,True,True,both_correct
+340,HR Support,Hardware,Miscellaneous,success,False,False,both_wrong
+341,Miscellaneous,Miscellaneous,HR Support,success,True,False,baseline_only
+342,Hardware,Hardware,Hardware,success,True,True,both_correct
+343,HR Support,HR Support,HR Support,success,True,True,both_correct
+344,HR Support,Hardware,Miscellaneous,success,False,False,both_wrong
+345,HR Support,HR Support,HR Support,success,True,True,both_correct
+346,Access,Access,Miscellaneous,success,True,False,baseline_only
+347,HR Support,Hardware,Internal Project,success,False,False,both_wrong
+348,HR Support,HR Support,HR Support,success,True,True,both_correct
+349,HR Support,HR Support,HR Support,success,True,True,both_correct
+350,Hardware,Hardware,Access,success,True,False,baseline_only
+351,Hardware,Hardware,Miscellaneous,success,True,False,baseline_only
+352,Access,Access,Miscellaneous,success,True,False,baseline_only
+353,Purchase,Purchase,Purchase,success,True,True,both_correct
+354,Hardware,Hardware,Hardware,success,True,True,both_correct
+355,Administrative rights,Administrative rights,Hardware,success,True,False,baseline_only
+356,Hardware,Hardware,Miscellaneous,success,True,False,baseline_only
+357,Access,Access,Access,success,True,True,both_correct
+358,Purchase,Purchase,Purchase,success,True,True,both_correct
+359,Purchase,Purchase,Purchase,success,True,True,both_correct
+360,Hardware,Hardware,Hardware,success,True,True,both_correct
+361,HR Support,HR Support,HR Support,success,True,True,both_correct
+362,Hardware,HR Support,HR Support,success,False,False,both_wrong
+363,Miscellaneous,Miscellaneous,HR Support,success,True,False,baseline_only
+364,Access,Access,Miscellaneous,success,True,False,baseline_only
+365,Miscellaneous,Miscellaneous,HR Support,success,True,False,baseline_only
+366,HR Support,HR Support,HR Support,success,True,True,both_correct
+367,HR Support,HR Support,HR Support,success,True,True,both_correct
+368,Hardware,Hardware,Hardware,success,True,True,both_correct
+369,Miscellaneous,Miscellaneous,Miscellaneous,success,True,True,both_correct
+370,HR Support,HR Support,HR Support,success,True,True,both_correct
+371,Miscellaneous,Miscellaneous,Administrative rights,success,True,False,baseline_only
+372,HR Support,HR Support,Storage,success,True,False,baseline_only
+373,Storage,Storage,Internal Project,success,True,False,baseline_only
+374,Administrative rights,Administrative rights,Miscellaneous,success,True,False,baseline_only
+375,Hardware,Hardware,Hardware,success,True,True,both_correct
+376,Storage,Storage,Access,success,True,False,baseline_only
+377,Miscellaneous,Miscellaneous,Hardware,success,True,False,baseline_only
+378,Miscellaneous,Miscellaneous,Hardware,success,True,False,baseline_only
+379,Hardware,Miscellaneous,Miscellaneous,success,False,False,both_wrong
+380,Miscellaneous,Hardware,Miscellaneous,success,False,True,llm_only
+381,Hardware,Hardware,Miscellaneous,success,True,False,baseline_only
+382,Access,Access,Miscellaneous,success,True,False,baseline_only
+383,HR Support,HR Support,HR Support,success,True,True,both_correct
+384,Access,Access,HR Support,success,True,False,baseline_only
+385,Purchase,Access,Miscellaneous,success,False,False,both_wrong
+386,Hardware,Hardware,Hardware,success,True,True,both_correct
+387,HR Support,HR Support,HR Support,success,True,True,both_correct
+388,Access,Administrative rights,Access,success,False,True,llm_only
+389,HR Support,HR Support,Miscellaneous,success,True,False,baseline_only
+390,Hardware,Hardware,Hardware,success,True,True,both_correct
+391,HR Support,Miscellaneous,__ERROR__,error: ValueError,False,False,both_wrong
+392,Hardware,Hardware,Miscellaneous,success,True,False,baseline_only
+393,Access,Access,Administrative rights,success,True,False,baseline_only
+394,Internal Project,Hardware,Miscellaneous,success,False,False,both_wrong
+395,Hardware,Hardware,Miscellaneous,success,True,False,baseline_only
+396,HR Support,HR Support,HR Support,success,True,True,both_correct
+397,HR Support,HR Support,Miscellaneous,success,True,False,baseline_only
+398,Miscellaneous,Internal Project,Internal Project,success,False,False,both_wrong
+399,Hardware,Hardware,Miscellaneous,success,True,False,baseline_only
+400,Access,Access,Access,success,True,True,both_correct
