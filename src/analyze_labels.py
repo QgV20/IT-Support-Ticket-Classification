@@ -159,14 +159,149 @@ dev_sample = dev_sample[
 # Lưu tập phát triển vào thư mục results
 dev_output = RESULTS_DIR / "llm_dev_sample80.csv"
 
-dev_sample.to_csv(
-    dev_output,
-    index=False,
-    encoding="utf-8-sig"
-)
+# Chỉ tạo tập phát triển nếu file chưa tồn tại
+if not dev_output.exists():
+    dev_sample.to_csv(
+        dev_output,
+        index=False,
+        encoding="utf-8-sig"
+    )
+    print("Đã tạo tập phát triển 80 ticket.")
+else:
+    print("Tập phát triển 80 ticket đã tồn tại, không ghi đè.")
 
 # Hiển thị kết quả kiểm tra
 print("\nTẬP DỮ LIỆU PHÁT TRIỂN - NGÀY 7")
 print("Tổng số ticket:", len(dev_sample))
 print(dev_sample["Topic_group"].value_counts())
 print("Đã lưu tại:", dev_output)
+
+
+
+# ==========================================
+# TUẦN 2 - NGÀY 2: TẠO TẬP KIỂM ĐỊNH V4
+# ==========================================
+
+# Đọc tập phát triển 80 ticket đã sử dụng
+dev_file = RESULTS_DIR / "llm_dev_sample80.csv"
+old_dev = pd.read_csv(dev_file)
+
+# Lấy lại dữ liệu train cùng chỉ số dòng gốc
+validation_source = df.reset_index().rename(
+    columns={"index": "ticket_id"}
+)
+
+# Loại những ticket đã sử dụng trong tập phát triển
+validation_source = validation_source[
+    ~validation_source["ticket_id"].isin(
+        old_dev["ticket_id"]
+    )
+]
+
+# Loại những mẫu HR Support đã xem trước đó
+hr_file = RESULTS_DIR / "hr_support_samples.csv"
+
+if hr_file.exists():
+    old_hr = pd.read_csv(hr_file)
+
+    validation_source = validation_source[
+        ~validation_source["Document"].isin(
+            old_hr["Document"]
+        )
+    ]
+
+# Loại những ticket xuất hiện trong các tập test
+for filename in ["test.csv", "test_sample.csv"]:
+    test_file = PROJECT_ROOT / "data" / filename
+
+    if test_file.exists():
+        test_data = pd.read_csv(test_file)
+
+        validation_source = validation_source[
+            ~validation_source["Document"].isin(
+                test_data["Document"]
+            )
+        ]
+
+# Loại dữ liệu thiếu và nội dung trùng nhau
+validation_source = validation_source.dropna(
+    subset=["Document", "Topic_group"]
+).drop_duplicates(subset=["Document"])
+
+# Lấy 20 ticket của mỗi nhóm nhãn
+validation_groups = []
+
+for category in sorted(
+    validation_source["Topic_group"].unique()
+):
+    group = validation_source[
+        validation_source["Topic_group"] == category
+    ]
+
+    if len(group) < 20:
+        raise ValueError(
+            f"Không đủ 20 ticket cho nhóm {category}"
+        )
+
+    validation_groups.append(
+        group.sample(
+            n=20,
+            random_state=2026
+        )
+    )
+
+# Gộp và sắp xếp dữ liệu
+validation_sample = pd.concat(
+    validation_groups
+).sort_values("ticket_id")
+
+validation_sample = validation_sample[
+    ["ticket_id", "Document", "Topic_group"]
+]
+
+# Kiểm tra tập kiểm định không trùng tập phát triển cũ
+assert len(validation_sample) == 160
+
+assert not set(validation_sample["ticket_id"]) & set(
+    old_dev["ticket_id"]
+)
+
+# Lưu tập kiểm định mới
+validation_output = (
+    RESULTS_DIR / "llm_validation_sample160.csv"
+)
+
+
+# Kiểm tra tập kiểm định trước khi lưu
+if validation_output.exists():
+    # Đọc kết quả đã lưu để đối chiếu với dữ liệu tái tạo
+    saved_validation = pd.read_csv(validation_output)
+
+    expected = validation_sample.reset_index(drop=True)
+    actual = saved_validation.reset_index(drop=True)
+
+    if not expected.equals(actual):
+        raise ValueError(
+            "Tập validation160 đã lưu khác với dữ liệu "
+            "được tái tạo. Không ghi đè kết quả cũ."
+        )
+
+    print(
+        "Tập validation160 đã tồn tại và khớp "
+        "với dữ liệu tái tạo. Không ghi đè."
+    )
+else:
+    # Chỉ tạo file khi chưa tồn tại
+    validation_sample.to_csv(
+        validation_output,
+        index=False,
+        encoding="utf-8-sig"
+    )
+
+    print("Đã tạo tập validation160 mới.")
+
+# Hiển thị thống kê tập kiểm định
+print("\nTẬP KIỂM ĐỊNH PROMPT")
+print("Tổng số ticket:", len(validation_sample))
+print(validation_sample["Topic_group"].value_counts())
+print("Đường dẫn:", validation_output)
