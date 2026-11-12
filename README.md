@@ -1,101 +1,96 @@
-# Research Summary — Generative AI for IT Support Ticket Classification
+# IT Support Ticket Classification — Machine Learning vs Generative AI
 
-## 1. Thông tin bài báo nghiên cứu
+Nghiên cứu và thực nghiệm phân loại phiếu yêu cầu hỗ trợ công nghệ thông tin (IT Support Ticket) bằng hai phương pháp:
 
-**Tên bài báo:** Generative AI Implementation in Enterprises: Lessons From a Case Study of Enhanced IT Service Management
+- **Machine Learning Baseline:** TF-IDF + Logistic Regression.
+- **Generative AI:** Qwen2.5:3B thông qua Ollama, sử dụng Zero-shot Prompt Engineering.
+
+Dự án được thực hiện trong khuôn khổ môn **Cơ sở hệ thống thông tin**, tập trung đánh giá chất lượng phân loại, phân tích lỗi và thảo luận khả năng ứng dụng AI trong quản lý dịch vụ CNTT (IT Service Management — ITSM).
+
+## 1. Cơ sở nghiên cứu
+
+### 1.1. Bài báo tham khảo
+
+**Tên bài báo:** Generative AI Implementation in Enterprises: Lessons From a Case Study of Enhanced IT Service Management.
 
 **Tác giả:** Ashish Jagdish Sharma, Bhawana Rathore, Baidyanath Biswas, Xiao Xiao và Rohit Gupta.
 
-**Năm công bố:** 2026
+**Năm công bố:** 2026.
 
-**Tạp chí:** Information Systems Journal
+**Tạp chí:** Information Systems Journal.
 
 **DOI:** https://doi.org/10.1111/isj.70029
 
-**Bối cảnh nghiên cứu:** Ứng dụng Generative AI (GenAI) trong hoạt động quản lý dịch vụ công nghệ thông tin (IT Service Management — ITSM) tại doanh nghiệp Apollo Tyres Limited.
+Bài báo nghiên cứu quá trình triển khai Generative AI trong hoạt động quản lý dịch vụ CNTT tại Apollo Tyres Limited.
 
-## 2. Tổng quan nội dung nghiên cứu
+Các hướng ứng dụng được thảo luận bao gồm quản lý tương tác người dùng, quản lý sự cố, quản lý tài sản CNTT và phân tích dữ liệu vận hành.
 
-Bài báo nghiên cứu quá trình triển khai Generative AI trong môi trường doanh nghiệp nhằm cải thiện các hoạt động quản lý dịch vụ CNTT.
+### 1.2. Liên hệ với dự án
 
-Nghiên cứu phân tích cách doanh nghiệp ứng dụng GenAI, những năng lực công nghệ và tổ chức được hình thành, cũng như các bài học từ quá trình triển khai.
+Nhóm lựa chọn một chức năng có liên quan đến ITSM: tự động phân loại phiếu yêu cầu hỗ trợ dựa trên nội dung văn bản.
 
-Các hướng ứng dụng chính bao gồm:
+Thực nghiệm của nhóm chỉ tập trung vào bài toán phân loại tám nhãn, không nhằm tái tạo toàn bộ hệ thống ITSM hay kết quả vận hành của doanh nghiệp trong bài báo gốc.
 
-1. **Quản lý tương tác người dùng:** ứng dụng GenAI để cải thiện quá trình tiếp nhận và phản hồi yêu cầu hỗ trợ.
-2. **Quản lý sự cố CNTT:** hỗ trợ phân tích, phân loại, ưu tiên và xử lý các sự cố IT.
-3. **Quản lý tài sản CNTT:** hỗ trợ quản lý và phân tích thông tin về tài sản công nghệ.
-4. **Phân tích dữ liệu vận hành:** khai thác dữ liệu ITSM để hỗ trợ hoạt động quản lý và ra quyết định.
+## 2. Mục tiêu và câu hỏi nghiên cứu
 
-Trong đó, nhóm lựa chọn tập trung nghiên cứu ứng dụng AI trong phân loại phiếu yêu cầu hỗ trợ CNTT.
+### 2.1. Mục tiêu
 
-## 3. Cơ sở lựa chọn hướng thực nghiệm
+- Xây dựng và đánh giá mô hình phân loại IT Support Ticket.
+- Thử nghiệm phương pháp học máy có giám sát và LLM Zero-shot.
+- So sánh chất lượng dự đoán trên cùng tập kiểm thử.
+- Phân tích các nhãn và trường hợp thường bị phân loại sai.
+- Đánh giá thời gian suy luận và thảo luận khả năng áp dụng thực tế.
 
-Trong hoạt động IT Service Management, người dùng thường gửi các phiếu yêu cầu (ticket) để báo cáo sự cố hoặc yêu cầu hỗ trợ kỹ thuật.
-
-Các ticket có thể chứa mô tả bằng ngôn ngữ tự nhiên với nội dung, độ dài và cách diễn đạt khác nhau.
-
-Việc phân loại ticket thủ công có thể tiêu tốn thời gian và phụ thuộc vào kinh nghiệm của nhân viên hỗ trợ.
-
-Trong phần nghiên cứu về quản lý sự cố, bài báo đề cập đến khả năng ứng dụng GenAI để phân tích nội dung mô tả, hỗ trợ phân loại và điều phối yêu cầu.
-
-Từ cơ sở đó, nhóm lựa chọn thực nghiệm bài toán **IT Support Ticket Category Classification**.
-
-Mục tiêu là đánh giá khả năng phân loại yêu cầu IT của mô hình ngôn ngữ lớn (Large Language Model — LLM), đồng thời so sánh với phương pháp Machine Learning truyền thống.
-
-Thực nghiệm này chỉ tập trung vào một chức năng liên quan đến bài báo, không nhằm tái tạo toàn bộ giải pháp ITSM được triển khai tại Apollo Tyres Limited.
-
-## 4. Mục tiêu và câu hỏi nghiên cứu
-
-### 4.1. Mục tiêu
-
-- Xây dựng mô hình phân loại phiếu yêu cầu IT dựa trên nội dung văn bản.
-- Thử nghiệm phương pháp Machine Learning truyền thống và phương pháp GenAI.
-- Đánh giá hiệu quả dự đoán của các phương pháp trên cùng tập dữ liệu kiểm thử.
-- Phân tích ưu điểm, hạn chế và khả năng ứng dụng của GenAI trong phân loại ticket.
-
-### 4.2. Câu hỏi nghiên cứu
+### 2.2. Câu hỏi nghiên cứu
 
 **RQ1:** Mô hình LLM có thể phân loại các phiếu yêu cầu hỗ trợ CNTT dựa trên mô tả văn bản với hiệu quả như thế nào?
 
-**RQ2:** Hiệu quả phân loại của LLM khác biệt ra sao so với phương pháp TF-IDF kết hợp Logistic Regression?
+**RQ2:** Hiệu quả phân loại của LLM khác biệt ra sao so với TF-IDF kết hợp Logistic Regression?
 
 **RQ3:** Những loại yêu cầu nào thường bị phân loại sai và những yếu tố nào có thể ảnh hưởng đến kết quả dự đoán?
 
-## 5. Dataset sử dụng trong thực nghiệm
+## 3. Dataset
 
-### 5.1. Nguồn dữ liệu
+### 3.1. Các file dữ liệu
 
-Nhóm sử dụng dataset các phiếu yêu cầu hỗ trợ CNTT được lưu trữ trong thư mục `data/` của GitHub repository.
+Dữ liệu được lưu trong thư mục `data/`:
 
-Các file hiện có:
+| File | Vai trò |
+|---|---|
+| `all_tickets_processed_improved_v3.csv` | Dữ liệu ticket đã qua xử lý |
+| `train.csv` | Tập huấn luyện Baseline |
+| `test.csv` | Tập kiểm thử đầy đủ |
+| `test_sample.csv` | Tập kiểm thử mẫu dùng so sánh hai mô hình |
 
-- `all_tickets_processed_improved_...`: file dữ liệu gốc hoặc dữ liệu đã xử lý, cần xác nhận tên đầy đủ và vai trò.
-- `train.csv`: tập dữ liệu huấn luyện.
-- `test.csv`: tập dữ liệu kiểm thử.
-- `test_sample.csv`: tập mẫu kiểm thử.
+Quy mô các tập chính:
 
-Việc phân chia dữ liệu do Thành viên 1 phụ trách và cần được kiểm tra để đảm bảo không có rò rỉ dữ liệu giữa các tập.
+| Tập dữ liệu | Số ticket |
+|---|---:|
+| Train | 38.258 |
+| Full test | 9.565 |
+| Test sample | 400 |
 
-### 5.2. Cấu trúc dữ liệu
+Hai cột quan trọng:
 
-Dựa trên file `test_sample.csv` đã được kiểm tra:
+- `Document`: nội dung văn bản của ticket.
+- `Topic_group`: nhãn phân loại thực tế.
 
-| Thuộc tính | Mô tả | Vai trò |
-|---|---|---|
-| Document | Nội dung văn bản mô tả yêu cầu hỗ trợ IT | Biến đầu vào |
-| Topic_group | Nhãn thể hiện loại yêu cầu | Biến mục tiêu |
+### 3.2. Các nhãn phân loại
 
-Thông tin thống kê của `test_sample.csv`:
+Dự án sử dụng tám nhóm:
 
-- Tổng số bản ghi: 400.
-- Số cột: 2.
-- Số lớp phân loại: 8.
-- Số giá trị thiếu: 0.
+1. Hardware
+2. HR Support
+3. Access
+4. Miscellaneous
+5. Storage
+6. Purchase
+7. Internal Project
+8. Administrative rights
 
-### 5.3. Phân bố các loại yêu cầu
+Phân bố trên tập test400:
 
-| Loại yêu cầu | Số lượng mẫu |
+| Nhãn | Số ticket |
 |---|---:|
 | Hardware | 114 |
 | HR Support | 91 |
@@ -105,126 +100,375 @@ Thông tin thống kê của `test_sample.csv`:
 | Purchase | 21 |
 | Internal Project | 18 |
 | Administrative rights | 15 |
-| **Tổng cộng** | **400** |
+| **Tổng** | **400** |
 
-Dữ liệu có sự chênh lệch về số lượng mẫu giữa các lớp. Do đó, việc đánh giá không nên chỉ dựa vào Accuracy mà cần sử dụng thêm Macro F1-score.
+Các nhãn có số mẫu không cân bằng. Vì vậy, nghiên cứu sử dụng cả Accuracy và Macro F1 để đánh giá.
 
-Các thống kê trên chỉ phản ánh file `test_sample.csv`, không đại diện cho toàn bộ dataset.
+### 3.3. Kiểm tra dữ liệu
 
-## 6. Phương pháp thực nghiệm đề xuất
+Tập test400 đã được kiểm tra:
 
-Nhóm dự kiến triển khai hai phương pháp.
+- Có đủ 400 ticket thuộc tám nhãn.
+- Không thiếu dữ liệu ở hai cột bắt buộc.
+- Không phát hiện nội dung trùng khớp chính xác sau chuẩn hóa trong tập test.
+- Không phát hiện nội dung trùng khớp chính xác với train.csv, dev80 và validation160 đã kiểm tra.
 
-### 6.1. Phương pháp 1 — Machine Learning Baseline
+Việc không phát hiện nội dung trùng khớp chính xác không chứng minh không có ticket gần trùng hoặc cùng chuỗi hội thoại.
 
-**Phụ trách:** Thành viên 1.
+Ngoài ra, 10 ticket đầu của test_sample.csv từng được quan sát trong giai đoạn phát triển prompt. Nhóm công bố thêm kết quả trên 390 ticket còn lại để phân tích độ nhạy.
 
-Sử dụng TF-IDF để biểu diễn nội dung văn bản dưới dạng vector đặc trưng.
+## 4. Phương pháp thực nghiệm
 
-Sau đó, mô hình Logistic Regression được huấn luyện để dự đoán nhãn `Topic_group`.
+### 4.1. Machine Learning Baseline
 
-Quy trình:
+Phương pháp do Thành viên 1 phụ trách.
 
-1. Đọc dữ liệu huấn luyện.
-2. Tiền xử lý văn bản.
-3. Trích xuất đặc trưng TF-IDF.
-4. Huấn luyện Logistic Regression.
-5. Dự đoán trên tập kiểm thử.
-6. Đánh giá kết quả.
+Pipeline:
 
-### 6.2. Phương pháp 2 — Generative AI / LLM
+`Document → TF-IDF → Logistic Regression → Predicted category`
 
-**Phụ trách:** Thành viên 2.
+Cấu hình chính:
 
-Sử dụng mô hình ngôn ngữ lớn thông qua Ollama để thực hiện phân loại văn bản theo phương pháp Zero-shot Classification.
+| Tham số | Giá trị |
+|---|---|
+| TF-IDF ngram_range | `(1, 2)` |
+| min_df | 2 |
+| max_features | 50000 |
+| sublinear_tf | True |
+| Logistic Regression max_iter | 1000 |
+| class_weight | `balanced` |
 
-Mô hình nhận hai thành phần đầu vào:
+Mô hình được huấn luyện trên train.csv và đánh giá trên test.csv và test_sample.csv.
 
-- Nội dung mô tả ticket từ cột `Document`.
-- Danh sách tám nhãn phân loại hợp lệ từ cột `Topic_group`.
+Chương trình chính: `src/train_baseline.py`.
 
-Mô hình được yêu cầu chọn đúng một nhãn và trả về kết quả có cấu trúc.
+Mô hình được lưu tại `results/baseline_tfidf_lr.joblib`.
 
-Ví dụ minh họa:
+### 4.2. Generative AI / LLM
 
-**Input:** "Please create a new user account for an employee."
+Phương pháp do Thành viên 2 phụ trách.
 
-**Predicted category:** Access
+Mô hình: **Qwen2.5:3B**, chạy cục bộ thông qua Ollama.
 
-Nhãn trên chỉ mang tính minh họa, không phải kết quả thực nghiệm đã được kiểm chứng.
+Phương pháp: **Zero-shot Classification**.
 
-Phương pháp zero-shot không yêu cầu huấn luyện lại trọng số LLM trên dataset của nhóm.
+LLM nhận nội dung `Document` và danh sách tám nhãn hợp lệ được định nghĩa trước trong prompt, sau đó được yêu cầu trả về một nhãn phù hợp.
 
-### 6.3. Thiết kế so sánh
+Nhãn thật `Topic_group` chỉ được sử dụng để đánh giá kết quả, không được cung cấp cho LLM như đáp án.
 
-Để đảm bảo tính công bằng:
+Nhóm thực hiện các phiên bản Prompt V1–V5 nhằm nghiên cứu định nghĩa nhãn, quy tắc phân biệt và tác động đến chất lượng dự đoán.
 
-- Hai phương pháp sử dụng cùng tập kiểm thử.
-- Sử dụng cùng danh sách nhãn hợp lệ.
-- Không sử dụng nhãn thật của ticket kiểm thử làm thông tin đầu vào cho mô hình.
-- Ghi lại cấu hình mô hình, prompt và các tham số suy luận.
-- Đánh giá bằng cùng các chỉ số.
-- Phân tích riêng các dự đoán không hợp lệ hoặc bị lỗi.
+Trong các phiên bản được đánh giá trên validation160, **Prompt V3 đạt Accuracy và Macro F1 cao nhất**, nên được chọn cho lần đánh giá cuối cùng.
 
-Việc điều chỉnh prompt và lựa chọn cấu hình cần được thực hiện trước khi đánh giá cuối cùng, sử dụng dữ liệu phát triển riêng nếu cần.
+Các file chính:
 
-## 7. Chỉ số đánh giá
+- `src/llm_classifier.py`: Prompt V3 chính thức.
+- `src/llm_classifier_v2.py`: Prompt V2.
+- `src/llm_classifier_v4.py`: Prompt V4.
+- `src/llm_classifier_v5.py`: Prompt V5.
+- `src/run_llm_batch.py`: xử lý hàng loạt ticket.
 
-Nhóm dự kiến sử dụng các chỉ số:
+## 5. Kết quả phát triển Prompt
 
-**Accuracy:** tỷ lệ dự đoán chính xác trên tổng số ticket được đánh giá.
+Tập validation160 gồm 160 ticket, cân bằng 20 ticket mỗi nhãn, được sử dụng trong quá trình phát triển prompt.
 
-**Precision:** đo mức độ chính xác của các dự đoán thuộc từng lớp.
+| Chỉ số | V2 | V3 | V4 | V5 |
+|---|---:|---:|---:|---:|
+| Accuracy | 44,38% | **48,75%** | 45,00% | 40,00% |
+| Macro F1 | 0,4192 | **0,4616** | 0,4317 | 0,4180 |
+| HR Support Recall | 20% | **65%** | 25% | 40% |
+| Administrative rights Recall | 0% | 0% | 0% | **25%** |
 
-**Recall:** đo khả năng phát hiện các mẫu thực tế thuộc từng lớp.
+Prompt V5 cải thiện Recall của Administrative rights, nhưng làm giảm hiệu quả tổng thể so với V3.
 
-**Macro F1-score:** trung bình F1-score của các lớp, giúp đánh giá hiệu quả khi dữ liệu có sự mất cân bằng.
+Phân tích từng ticket cho thấy V5 sửa đúng 13 trường hợp và làm sai 27 trường hợp so với V3. Cả 27 trường hợp suy giảm đều được V5 chuyển thành Miscellaneous.
 
-**Confusion Matrix:** thể hiện sự nhầm lẫn giữa các loại yêu cầu.
+Các kết quả validation thuộc quá trình phát triển prompt, không được xem là phép đánh giá độc lập cuối cùng.
 
-**Inference Time:** thời gian cần thiết để mô hình đưa ra dự đoán.
+## 6. Kết quả đánh giá cuối cùng
 
-Các chỉ số này sẽ được tính từ kết quả thực nghiệm thực tế, không sử dụng số liệu giả định.
+### 6.1. So sánh trên cùng test400
 
-## 8. Mối liên hệ với bài báo gốc
+| Chỉ số | Baseline | LLM V3 |
+|---|---:|---:|
+| Accuracy | **85,75%** | 41,00% |
+| Macro F1 | **0,8611** | 0,3729 |
+| Dự đoán đúng | **343/400** | 164/400 |
+| Dự đoán hợp lệ | 400/400 | 399/400 |
 
-Bài báo gốc nghiên cứu ứng dụng Generative AI trong môi trường IT Service Management, bao gồm việc hỗ trợ phân loại và xử lý sự cố IT.
+Baseline vượt LLM 44,75 điểm phần trăm Accuracy và 0,4882 Macro F1.
 
-Thực nghiệm của nhóm tập trung vào chức năng phân loại ticket dựa trên mô tả văn bản.
+Kết quả Baseline trên full test gồm 9.565 ticket:
 
-Điểm tương đồng là cả hai đều quan tâm đến khả năng ứng dụng AI để hỗ trợ quá trình tiếp nhận và quản lý yêu cầu CNTT.
+- Accuracy: 85,65%.
+- Macro F1: 0,8567.
 
-Tuy nhiên, hai nghiên cứu khác nhau về phạm vi:
+Không sử dụng kết quả full test của Baseline để so sánh trực tiếp với LLM trên tập 400 ticket.
 
-- Bài báo gốc nghiên cứu quá trình triển khai GenAI trong môi trường doanh nghiệp thực tế.
-- Thực nghiệm của nhóm đánh giá các phương pháp phân loại trên một dataset có sẵn.
-- Nhóm không triển khai hệ thống ITSM hoàn chỉnh.
-- Nhóm không đo lường hiệu quả vận hành thực tế như thời gian giải quyết sự cố hay mức độ hài lòng của người dùng.
+### 6.2. Kết quả LLM trên 390 ticket
 
-Do đó, thực nghiệm được xem là một nghiên cứu ứng dụng kỹ thuật có liên quan đến bài báo, không phải sự tái tạo đầy đủ nghiên cứu gốc.
+Khi loại 10 ticket đầu từng được quan sát:
 
-## 9. Giới hạn nghiên cứu
+- Accuracy: 40,51%.
+- Macro F1: 0,3691.
 
-- Thực nghiệm chưa được triển khai trong hệ thống ITSM thực tế.
-- Chất lượng mô hình phụ thuộc vào dữ liệu và nhãn được cung cấp.
-- Các lớp có ít mẫu có thể gây khó khăn trong đánh giá.
-- Hiệu quả LLM có thể thay đổi theo mô hình, prompt và cấu hình suy luận.
-- Thời gian suy luận phụ thuộc vào phần cứng và môi trường chạy.
-- Kết quả trên dataset không đủ để kết luận rằng thời gian xử lý sự cố trong doanh nghiệp sẽ giảm.
+Kết quả này là phép phân tích bổ sung, không được mặc nhiên xem là bằng chứng về một tập test hoàn toàn độc lập.
 
-## 10. Kết quả kỳ vọng
+### 6.3. Recall theo từng nhãn trên test400
 
-Sau khi hoàn thành, nhóm dự kiến có:
+| Nhãn | Baseline | LLM V3 |
+|---|---:|---:|
+| Access | 79,7% | 50,8% |
+| Administrative rights | 100,0% | 0,0% |
+| HR Support | 83,5% | 56,0% |
+| Hardware | 85,1% | 31,6% |
+| Internal Project | 94,4% | 44,4% |
+| Miscellaneous | 88,1% | 33,9% |
+| Purchase | 81,0% | 71,4% |
+| Storage | 95,7% | 17,4% |
 
-1. Mô hình Machine Learning baseline.
-2. Module phân loại ticket bằng LLM.
-3. Kết quả dự đoán của hai phương pháp.
-4. Bảng so sánh các chỉ số đánh giá.
-5. Phân tích những trường hợp dự đoán sai.
-6. Báo cáo thực nghiệm và thảo luận về khả năng ứng dụng GenAI trong ITSM.
+Baseline có Recall cao hơn ở cả tám nhóm nhãn trong thực nghiệm này.
 
-Các nội dung trên là kết quả kỳ vọng, chưa phải kết quả đã đạt được.
+## 7. Phân tích lỗi
 
-## 11. Tài liệu tham khảo
+### 7.1. So sánh theo từng ticket
+
+| Trường hợp | Số ticket |
+|---|---:|
+| Cả hai mô hình cùng đúng | 152 |
+| Chỉ Baseline đúng | 191 |
+| Chỉ LLM đúng | 12 |
+| Cả hai cùng sai | 45 |
+
+LLM dự đoán đúng 12 ticket mà Baseline dự đoán sai. Tuy nhiên, Baseline dự đoán đúng 191 ticket mà LLM sai.
+
+Trong 45 ticket cả hai mô hình cùng sai:
+
+- 18 ticket được hai mô hình dự đoán thành cùng một nhãn sai.
+- 27 ticket được dự đoán thành hai nhãn sai khác nhau.
+
+### 7.2. Một số cặp nhãn LLM thường nhầm
+
+| Nhãn thực tế | LLM dự đoán | Số ticket |
+|---|---|---:|
+| Hardware | Miscellaneous | 46 |
+| Access | Miscellaneous | 23 |
+| HR Support | Access | 18 |
+| Miscellaneous | HR Support | 18 |
+| Hardware | Access | 17 |
+| HR Support | Miscellaneous | 14 |
+| Storage | Access | 11 |
+
+LLM có xu hướng dự đoán nhiều ticket thuộc các nhóm chuyên biệt sang Miscellaneous và Access.
+
+Các nguyên nhân tiềm năng gồm nội dung mơ hồ, nhãn có nghiệp vụ chồng lấn và quy ước gán nhãn đặc thù. Đây là giả thuyết từ phân tích lỗi, chưa phải kết luận nhân quả.
+
+### 7.3. Confusion Matrix
+
+Baseline trên test400:
+
+![Baseline confusion matrix](results/confusion_sample.png)
+
+LLM V3 trên test400:
+
+![LLM confusion matrix](results/llm_confusion_final_v3_400.png)
+
+Confusion Matrix LLM có thêm cột `__ERROR__` để ghi nhận một trường hợp mô hình trả về nhãn ngoài danh sách hợp lệ.
+
+## 8. So sánh thời gian xử lý
+
+| Chỉ số | Baseline | LLM V3 |
+|---|---:|---:|
+| Thời gian trung bình/ticket | 0,052 ms | 202,1 ms |
+| Accuracy | 85,75% | 41,00% |
+| Macro F1 | 0,8611 | 0,3729 |
+
+Các thống kê bổ sung của LLM:
+
+- Tổng thời gian đo: 80,854 giây/400 ticket.
+- Trung vị: 178,5 ms/ticket.
+- P95: 245,3 ms/ticket.
+- Ticket đầu tiên: 6,627 giây.
+- Trung bình bỏ ticket đầu: 186,0 ms/ticket.
+
+Các phép đo không có quy trình benchmark phần cứng được kiểm soát hoàn toàn giống nhau. Vì vậy, các giá trị thời gian chỉ phản ánh điều kiện thực thi đã ghi nhận.
+
+## 9. Cấu trúc repository
+
+```text
+IT-Support-Ticket-Classification/
+├── data/
+│   ├── all_tickets_processed_improved_v3.csv
+│   ├── train.csv
+│   ├── test.csv
+│   └── test_sample.csv
+├── src/
+│   ├── train_baseline.py
+│   ├── llm_classifier.py
+│   ├── llm_classifier_v2.py
+│   ├── llm_classifier_v4.py
+│   ├── llm_classifier_v5.py
+│   ├── run_llm_batch.py
+│   ├── evaluate_dev.py
+│   ├── check_final_test.py
+│   ├── export_baseline_predictions.py
+│   ├── compare_baseline_llm.py
+│   └── analyze_final_confusion.py
+├── results/
+│   ├── baseline_report.txt
+│   ├── baseline_tfidf_lr.joblib
+│   ├── confusion_full.png
+│   ├── confusion_sample.png
+│   ├── llm_confusion_final_v3_400.png
+│   ├── llm_two_week_summary.md
+│   └── ... các báo cáo và kết quả phân tích khác
+├── requirements.txt
+├── .gitignore
+└── README.md
+```
+
+Danh sách trên chỉ thể hiện các file tiêu biểu, không phải toàn bộ nội dung repository.
+
+## 10. Hướng dẫn cài đặt và sử dụng
+
+### 10.1. Yêu cầu
+
+- Python.
+- Các thư viện trong requirements.txt.
+- Ollama và mô hình `qwen2.5:3b` nếu cần chạy LLM.
+- Dữ liệu trong thư mục data/.
+
+### 10.2. Cài đặt thư viện
+
+Tại thư mục gốc dự án trên Windows PowerShell:
+
+```powershell
+py -m pip install -r requirements.txt
+```
+
+Kiểm tra môi trường:
+
+```powershell
+py -m pip check
+```
+
+### 10.3. Chuẩn bị Ollama
+
+Cài đặt Ollama từ https://ollama.com/.
+
+Tải mô hình:
+
+```powershell
+ollama pull qwen2.5:3b
+```
+
+Đảm bảo dịch vụ Ollama đang chạy trước khi thực hiện phân loại LLM.
+
+### 10.4. Các chương trình chính
+
+Huấn luyện và đánh giá Baseline:
+
+```powershell
+py src/train_baseline.py
+```
+
+**Lưu ý:** Chương trình trên huấn luyện lại Baseline và ghi lại một số file trong results/. Không chạy nếu muốn giữ nguyên các kết quả đã công bố.
+
+Xuất dự đoán từ mô hình Baseline đã lưu:
+
+```powershell
+py src/export_baseline_predictions.py
+```
+
+Chương trình này từ chối ghi đè nếu `baseline_predictions_400.csv` đã tồn tại.
+
+Chạy phân loại hàng loạt bằng LLM:
+
+```powershell
+py src/run_llm_batch.py
+```
+
+Trước khi chạy, cần kiểm tra các cấu hình đầu vào, đầu ra và số ticket trong chương trình. Chương trình hiện được cấu hình cho Prompt V3 và tập test400, có cơ chế tránh ghi đè kết quả đã lưu.
+
+So sánh dự đoán hai mô hình:
+
+```powershell
+py src/compare_baseline_llm.py
+```
+
+Tạo Confusion Matrix của LLM V3:
+
+```powershell
+py src/analyze_final_confusion.py
+```
+
+Các chương trình phân tích có thể từ chối chạy nếu file đầu ra đã tồn tại. Khi muốn tái tạo kết quả, cần bảo toàn hoặc sao lưu kết quả cũ trước, không tùy tiện xóa dữ liệu thực nghiệm.
+
+### 10.5. Đọc kết quả mà không chạy lại mô hình
+
+Để xem kết quả đã công bố, ưu tiên đọc:
+
+- `results/baseline_report.txt`.
+- `results/llm_two_week_summary.md`.
+- `results/baseline_llm_comparison_week3_day1.md`.
+- `results/baseline_llm_shared_errors_week3_day2.md`.
+- `results/baseline_llm_confusion_week3_day3.md`.
+- `results/baseline_llm_efficiency_week3_day4.md`.
+- `results/research_paper_connection_week3_day5.md`.
+
+Một số file CSV dự đoán chi tiết được lưu ở máy thực nghiệm và có thể chưa được đưa lên GitHub. Quyền chia sẻ nội dung ticket cần được kiểm tra trước khi công bố.
+
+## 11. Phân công công việc
+
+### Thành viên 1 — Machine Learning Baseline
+
+- Chuẩn bị và phân chia dữ liệu.
+- Xây dựng TF-IDF + Logistic Regression.
+- Huấn luyện và đánh giá Baseline.
+- Tạo báo cáo và Confusion Matrix.
+
+### Thành viên 2 — Generative AI / LLM
+
+- Xây dựng bộ phân loại Zero-shot với Qwen2.5:3B.
+- Phát triển và so sánh các phiên bản Prompt.
+- Phân tích lỗi phân loại.
+- Đánh giá LLM trên tập test400.
+- So sánh kết quả dự đoán của hai phương pháp.
+- Tổng hợp báo cáo thực nghiệm LLM và phân tích liên hệ với nghiên cứu gốc.
+
+## 12. Hạn chế và hướng phát triển
+
+### Hạn chế
+
+- Chỉ thử nghiệm một mô hình LLM Qwen2.5:3B.
+- Chưa đánh giá Few-shot hoặc Fine-tuning.
+- Một phần dữ liệu test đã được quan sát trong quá trình phát triển prompt.
+- Chưa kiểm tra đầy đủ các ticket gần trùng hoặc cùng chuỗi hội thoại.
+- Số lượng mẫu theo nhãn không cân bằng.
+- Thời gian xử lý của hai phương pháp chưa được đo trong điều kiện benchmark hoàn toàn tương đương.
+- Chưa thực hiện thí nghiệm độc lập về mô hình kết hợp.
+- Chưa triển khai trong hệ thống ITSM thực tế.
+
+### Hướng phát triển
+
+- Thử nghiệm Few-shot và các LLM khác.
+- Nghiên cứu các quy ước gán nhãn đặc thù của dataset.
+- Đánh giá khả năng kết hợp Baseline với LLM bằng một cơ chế được thiết kế trước.
+- Kiểm tra độ ổn định qua nhiều lần chạy.
+- Đánh giá trên dữ liệu ticket mới và trong quy trình nghiệp vụ thực tế.
+
+Các hướng phát triển này chưa phải kết quả thực nghiệm đã đạt được.
+
+## 13. Kết luận
+
+Trong điều kiện thực nghiệm hiện tại, TF-IDF + Logistic Regression đạt kết quả cao hơn rõ rệt so với Qwen2.5:3B Zero-shot Prompt V3 về Accuracy và Macro F1.
+
+Baseline đạt Accuracy 85,75% và Macro F1 0,8611, trong khi LLM đạt Accuracy 41,00% và Macro F1 0,3729 trên cùng tập test400.
+
+Kết quả cho thấy lựa chọn công nghệ trong hệ thống thông tin phải gắn với bài toán, dữ liệu và mục tiêu nghiệp vụ cụ thể.
+
+Thực nghiệm không phủ nhận tiềm năng của Generative AI trong ITSM mà làm rõ những hạn chế của một phương pháp phân loại Zero-shot trong bối cảnh có sẵn dữ liệu huấn luyện có nhãn.
+
+## 14. Tài liệu tham khảo
 
 Sharma, A. J., Rathore, B., Biswas, B., Xiao, X., & Gupta, R. (2026). *Generative AI Implementation in Enterprises: Lessons From a Case Study of Enhanced IT Service Management*. Information Systems Journal. https://doi.org/10.1111/isj.70029
