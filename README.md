@@ -1,4 +1,4 @@
-# IT Support Ticket Classification — Machine Learning vs Generative AI
+﻿# IT Support Ticket Classification — Machine Learning vs Generative AI
 
 Nghiên cứu và thực nghiệm phân loại phiếu yêu cầu hỗ trợ công nghệ thông tin (IT Support Ticket) bằng hai phương pháp:
 
@@ -407,14 +407,17 @@ Các chương trình phân tích có thể từ chối chạy nếu file đầu 
 ### 10.5. Đọc kết quả mà không chạy lại mô hình
 
 Để xem kết quả đã công bố, ưu tiên đọc:
+- **Báo cáo chính:** [`results/final_research_report.md`](results/final_research_report.md) — tổng hợp toàn bộ thực nghiệm trong ba tuần, gồm phương pháp, kết quả, phân tích lỗi và kết luận.
+- **Báo cáo Baseline:** `results/baseline_report.txt`.
+- **Các báo cáo thực nghiệm chi tiết:** lưu tại thư mục `results/archive/`, gồm:
+  - `llm_two_week_summary.md`
+  - `baseline_llm_comparison_week3_day1.md`
+  - `baseline_llm_shared_errors_week3_day2.md`
+  - `baseline_llm_confusion_week3_day3.md`
+  - `baseline_llm_efficiency_week3_day4.md`
+  - `research_paper_connection_week3_day5.md`
 
-- `results/baseline_report.txt`.
-- `results/llm_two_week_summary.md`.
-- `results/baseline_llm_comparison_week3_day1.md`.
-- `results/baseline_llm_shared_errors_week3_day2.md`.
-- `results/baseline_llm_confusion_week3_day3.md`.
-- `results/baseline_llm_efficiency_week3_day4.md`.
-- `results/research_paper_connection_week3_day5.md`.
+Các báo cáo thực nghiệm gốc khác cũng được giữ lại trong `results/archive/` để phục vụ đối chiếu và kiểm chứng.
 
 Một số file CSV dự đoán chi tiết được lưu ở máy thực nghiệm và có thể chưa được đưa lên GitHub. Quyền chia sẻ nội dung ticket cần được kiểm tra trước khi công bố.
 
