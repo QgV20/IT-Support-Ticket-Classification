@@ -166,7 +166,7 @@ comparison.to_csv(
 )
 
 label_results.to_csv(
-    RESULTS / "llm_recall_by_label.csv",
+    RESULTS / "llm_experiments" / "analysis" / "llm_recall_by_label.csv",
     index=False,
     encoding="utf-8-sig",
 )

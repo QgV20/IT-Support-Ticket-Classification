@@ -110,7 +110,7 @@ Vì vậy, bước nghiên cứu tiếp theo nên tập trung tìm hiểu quy ư
 
 - `src/analyze_admin_rights.py`
 - `results/llm_admin_rights_analysis.csv`
-- `results/llm_admin_rights_summary.csv`
+- `results/llm_experiments/analysis/llm_admin_rights_summary.csv`
 - `results/llm_validation_predictions_v2.csv`
 - `results/llm_validation_predictions_v3.csv`
 - `results/llm_validation_predictions_v4.csv`

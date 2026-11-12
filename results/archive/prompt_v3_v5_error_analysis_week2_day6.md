@@ -166,4 +166,4 @@ Prompt V5 được giữ lại để ghi nhận kết quả nghiên cứu cải 
 - `results/llm_v3_v5_comparison.csv`
 - `results/llm_v5_improved_cases.csv`
 - `results/llm_v5_regressed_cases.csv`
-- `results/llm_v3_v5_label_summary.csv`
+- `results/llm_experiments/analysis/llm_v3_v5_label_summary.csv`

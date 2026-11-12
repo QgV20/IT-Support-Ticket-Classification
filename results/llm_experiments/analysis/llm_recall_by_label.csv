@@ -1,0 +1,9 @@
+﻿Category,Total,Correct_V2,Correct_V3,Recall_V2,Recall_V3
+Access,10,3,6,0.3,0.6
+Administrative rights,10,2,0,0.2,0.0
+HR Support,10,1,4,0.1,0.4
+Hardware,10,1,0,0.1,0.0
+Internal Project,10,7,6,0.7,0.6
+Miscellaneous,10,7,6,0.7,0.6
+Purchase,10,10,9,1.0,0.9
+Storage,10,3,3,0.3,0.3

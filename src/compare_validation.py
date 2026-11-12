@@ -126,7 +126,7 @@ comparison.reset_index().to_csv(
 )
 
 recall_df.to_csv(
-    RESULTS / "llm_validation_recall_by_label.csv",
+    RESULTS / "llm_experiments" / "analysis" / "llm_validation_recall_by_label.csv",
     index=False,
     encoding="utf-8-sig",
 )

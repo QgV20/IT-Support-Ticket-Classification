@@ -147,11 +147,11 @@ for version in VERSIONS:
 summary = pd.DataFrame(summary_rows)
 
 summary.to_csv(
-    RESULTS / "llm_admin_rights_summary.csv",
+    RESULTS / "llm_experiments" / "analysis" / "llm_admin_rights_summary.csv",
     index=False,
     encoding="utf-8-sig",
 )
 
 print("\nĐã lưu:")
 print(admin_output)
-print(RESULTS / "llm_admin_rights_summary.csv")
+print(RESULTS / "llm_experiments" / "analysis" / "llm_admin_rights_summary.csv")
