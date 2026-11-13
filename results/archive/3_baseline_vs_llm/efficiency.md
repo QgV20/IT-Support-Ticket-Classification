@@ -40,38 +40,38 @@ Các chỉ số được tính gồm Mean, Median, P95, Min, Max và tổng th�
 | Chỉ số | Kết quả |
 |---|---:|
 | Tổng ticket | 400 |
-| Tổng thời gian | 80,854 giây |
-| Thời gian trung bình | 0,2021 giây/ticket |
-| Trung vị | 0,1785 giây/ticket |
-| P95 | 0,2453 giây/ticket |
-| Nhỏ nhất | 0,137 giây |
-| Lớn nhất | 6,627 giây |
-| Ticket đầu tiên | 6,627 giây |
-| Trung bình bỏ ticket đầu | 0,1860 giây/ticket |
+| Tổng thời gian | 165,440 giây |
+| Thời gian trung bình | 0,4136 giây/ticket |
+| Trung vị | 0,2585 giây/ticket |
+| P95 | 0,3801 giây/ticket |
+| Nhỏ nhất | 0,209 giây |
+| Lớn nhất | 56,235 giây |
+| Ticket đầu tiên | 56,235 giây |
+| Trung bình bỏ ticket đầu | 0,2737 giây/ticket |
 
 Kết quả cho thấy ticket đầu tiên có thời gian xử lý cao hơn rõ rệt so với phần lớn ticket còn lại.
 
 Hiện tượng này có thể liên quan đến chi phí khởi tạo hoặc nạp mô hình, nhưng thực nghiệm chưa đo riêng từng thành phần.
 
-Sau khi loại ticket đầu khỏi phép tính trung bình bổ sung, thời gian trung bình còn khoảng 186,0 ms/ticket.
+Sau khi loại ticket đầu khỏi phép tính trung bình bổ sung, thời gian trung bình còn khoảng 273,7 ms/ticket.
 
 ## 4. So sánh thời gian xử lý
 
 | Chỉ số | Baseline | LLM V3 |
 |---|---:|---:|
-| Thời gian trung bình | 0,052 ms/ticket | 202,1 ms/ticket |
-| Tổng thời gian trên 400 ticket | Khoảng 0,0208 giây | 80,854 giây |
-| Thời gian trung bình sau khi bỏ lần gọi đầu của LLM | Không đo | 186,0 ms/ticket |
+| Thời gian trung bình | 0,052 ms/ticket | 413,6 ms/ticket |
+| Tổng thời gian trên 400 ticket | Khoảng 0,0208 giây | 165,440 giây |
+| Thời gian trung bình sau khi bỏ lần gọi đầu của LLM | Không đo | 273,7 ms/ticket |
 
 Tổng thời gian Baseline được ước tính từ thời gian trung bình đã làm tròn trong báo cáo.
 
 Tỷ số giữa thời gian trung bình LLM và Baseline:
 
-202,1 / 0,052 ≈ 3.887 lần.
+413,6 / 0,052 ≈ 7.954 lần.
 
 Nếu sử dụng thời gian LLM trung bình sau khi loại lần gọi đầu:
 
-186,0 / 0,052 ≈ 3.577 lần.
+273,7 / 0,052 ≈ 5.263 lần.
 
 Các tỷ số này mang tính mô tả dựa trên những phép đo hiện có, không phải kết quả benchmark trên môi trường phần cứng và quy trình đo được kiểm soát hoàn toàn giống nhau.
 
@@ -83,7 +83,7 @@ Các tỷ số này mang tính mô tả dựa trên những phép đo hiện có
 | Macro F1 | 0,8611 | 0,3729 |
 | Dự đoán đúng | 343/400 | 164/400 |
 | Dự đoán hợp lệ | 400/400 | 399/400 |
-| Thời gian trung bình/ticket | 0,052 ms | 202,1 ms |
+| Thời gian trung bình/ticket | 0,052 ms | 413,6 ms |
 
 Baseline đạt Accuracy cao hơn 44,75 điểm phần trăm và Macro F1 cao hơn 0,4882.
 
@@ -137,7 +137,7 @@ Trong phạm vi phân loại tám nhóm IT Support Ticket trên tập test400, p
 
 Baseline đạt Accuracy 85,75% và Macro F1 0,8611, trong khi LLM đạt Accuracy 41,00% và Macro F1 0,3729.
 
-Thời gian dự đoán trung bình đã báo cáo của Baseline là 0,052 ms/ticket, còn LLM có thời gian xử lý trung bình khoảng 202,1 ms/ticket.
+Thời gian dự đoán trung bình đã báo cáo của Baseline là 0,052 ms/ticket, còn LLM có thời gian xử lý trung bình khoảng 413,6 ms/ticket.
 
 Các kết quả ủng hộ việc ưu tiên Baseline cho chức năng phân loại ticket tự động trong phạm vi dữ liệu và điều kiện thực nghiệm của nhóm.
 

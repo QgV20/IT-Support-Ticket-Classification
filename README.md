@@ -163,9 +163,9 @@ Trong các phiên bản được đánh giá trên validation160, **Prompt V3 đ
 Các file chính:
 
 - `src/llm_classifier.py`: Prompt V3 chính thức.
-- `src/llm_classifier_v2.py`: Prompt V2.
-- `src/llm_classifier_v4.py`: Prompt V4.
-- `src/llm_classifier_v5.py`: Prompt V5.
+- `src/experiments/llm_classifier_v2.py`: Prompt V2.
+- `src/experiments/llm_classifier_v4.py`: Prompt V4.
+- `src/experiments/llm_classifier_v5.py`: Prompt V5.
 - `src/run_llm_batch.py`: xử lý hàng loạt ticket.
 
 ## 5. Kết quả phát triển Prompt
@@ -304,25 +304,37 @@ IT-Support-Ticket-Classification/
 │   ├── test.csv
 │   └── test_sample.csv
 ├── src/
+│   ├── data_preprocessing.py
 │   ├── train_baseline.py
-│   ├── llm_classifier.py
-│   ├── llm_classifier_v2.py
-│   ├── llm_classifier_v4.py
-│   ├── llm_classifier_v5.py
+│   ├── llm_classifier.py              # Prompt V3 chính thức
 │   ├── run_llm_batch.py
-│   ├── evaluate_dev.py
 │   ├── check_final_test.py
 │   ├── export_baseline_predictions.py
 │   ├── compare_baseline_llm.py
-│   └── analyze_final_confusion.py
+│   ├── analyze_final_confusion.py
+│   └── experiments/                   # Phát triển prompt và phân tích nhãn
+│       ├── llm_classifier_v2.py
+│       ├── llm_classifier_v4.py
+│       ├── llm_classifier_v5.py
+│       ├── evaluate_dev.py
+│       └── ... các script so sánh prompt, phân tích lỗi và nhãn
 ├── results/
+│   ├── final_research_report.md       # Báo cáo chính
+│   ├── llm_summary.md                 # Tổng kết thực nghiệm LLM
 │   ├── baseline_report.txt
 │   ├── baseline_tfidf_lr.joblib
+│   ├── baseline_predictions_400.csv
+│   ├── llm_final_predictions_v3_400.csv
+│   ├── baseline_llm_comparison_400.csv
 │   ├── confusion_full.png
 │   ├── confusion_sample.png
 │   ├── llm_confusion_final_v3_400.png
-│   ├── llm_two_week_summary.md
-│   └── ... các báo cáo và kết quả phân tích khác
+│   ├── llm_experiments/analysis/      # Bảng Recall theo nhãn của LLM
+│   ├── archive/
+│   │   ├── 1_prompt_dev/              # Phát triển và so sánh Prompt V1–V5
+│   │   ├── 2_label_analysis/          # Phân tích nhãn, Administrative rights
+│   │   └── 3_baseline_vs_llm/         # So sánh Baseline và LLM
+│   └── ... các file kết quả khác
 ├── requirements.txt
 ├── .gitignore
 └── README.md
@@ -410,13 +422,16 @@ Các chương trình phân tích có thể từ chối chạy nếu file đầu 
 Để xem kết quả đã công bố, ưu tiên đọc:
 - **Báo cáo chính:** [`results/final_research_report.md`](results/final_research_report.md) — tổng hợp toàn bộ thực nghiệm trong ba tuần, gồm phương pháp, kết quả, phân tích lỗi và kết luận.
 - **Báo cáo Baseline:** `results/baseline_report.txt`.
-- **Các báo cáo thực nghiệm chi tiết:** lưu tại thư mục `results/archive/`, gồm:
-  - `llm_two_week_summary.md`
-  - `baseline_llm_comparison_week3_day1.md`
-  - `baseline_llm_shared_errors_week3_day2.md`
-  - `baseline_llm_confusion_week3_day3.md`
-  - `baseline_llm_efficiency_week3_day4.md`
-  - `research_paper_connection_week3_day5.md`
+- **Báo cáo tổng kết thực nghiệm LLM:** [`results/llm_summary.md`](results/llm_summary.md).
+- **Các báo cáo thực nghiệm chi tiết:** lưu tại thư mục `results/archive/`, chia theo giai đoạn:
+  - `1_prompt_dev/`: phát triển và so sánh Prompt V1–V5, phân tích lỗi theo từng phiên bản.
+  - `2_label_analysis/`: phân bố nhãn và phân tích nhãn Administrative rights.
+  - `3_baseline_vs_llm/`: so sánh Baseline và LLM, gồm:
+    - `comparison.md`: so sánh kết quả hai mô hình.
+    - `shared_errors.md`: các ticket cả hai mô hình cùng sai.
+    - `confusion.md`: phân tích Confusion Matrix.
+    - `efficiency.md`: so sánh thời gian xử lý.
+    - `paper_connection.md`: liên hệ với bài báo tham khảo.
 
 Các báo cáo thực nghiệm gốc khác cũng được giữ lại trong `results/archive/` để phục vụ đối chiếu và kiểm chứng.
 

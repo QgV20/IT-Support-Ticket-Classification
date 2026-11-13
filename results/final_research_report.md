@@ -139,7 +139,7 @@ Một ticket trả về nhãn không thuộc tám lớp hợp lệ, được lư
 
 ## 5.3. Khả năng tái sử dụng
 
-Các mã chính gồm `src/llm_classifier.py`, `src/llm_classifier_v2.py`, `src/llm_classifier_v4.py`, `src/llm_classifier_v5.py`, `src/evaluate_dev.py` và `src/run_llm_batch.py`. Các bản prompt được giữ riêng để bảo tồn lịch sử thay đổi và tránh ghi đè kết quả.
+Các mã chính gồm `src/llm_classifier.py`, `src/experiments/llm_classifier_v2.py`, `src/experiments/llm_classifier_v4.py`, `src/experiments/llm_classifier_v5.py`, `src/experiments/evaluate_dev.py` và `src/run_llm_batch.py`. Các bản prompt được giữ riêng để bảo tồn lịch sử thay đổi và tránh ghi đè kết quả.
 
 ---
 
@@ -277,14 +277,14 @@ Các giả thuyết từ quan sát lỗi gồm: mô tả ticket ngắn/mơ hồ,
 
 | Chỉ số | Baseline | LLM V3 |
 |---|---:|---:|
-| Thời gian trung bình mỗi ticket | 0,052 ms | 202,1 ms |
-| Tổng thời gian cho 400 ticket | ≈ 0,0208 giây (suy ra) | 80,854 giây (ghi nhận) |
-| Trung vị | Không được báo cáo | 178,5 ms |
-| P95 | Không được báo cáo | 245,3 ms |
-| Nhanh nhất / chậm nhất | Không được báo cáo | 137 ms / 6,627 giây |
-| Trung bình LLM bỏ lần đầu | — | 186,0 ms |
+| Thời gian trung bình mỗi ticket | 0,052 ms | 413,6 ms |
+| Tổng thời gian cho 400 ticket | ≈ 0,0208 giây (suy ra) | 165,440 giây (ghi nhận) |
+| Trung vị | Không được báo cáo | 258,5 ms |
+| P95 | Không được báo cáo | 380,1 ms |
+| Nhanh nhất / chậm nhất | Không được báo cáo | 209 ms / 56,235 giây |
+| Trung bình LLM bỏ lần đầu | — | 273,7 ms |
 
-Dựa trên hai giá trị trung bình đã làm tròn, tỷ số thời gian quan sát được là khoảng **3.887 lần** (202,1 / 0,052); khi bỏ lần gọi đầu của LLM, khoảng **3.577 lần**.
+Dựa trên hai giá trị trung bình đã làm tròn, tỷ số thời gian quan sát được là khoảng **7.954 lần** (413,6 / 0,052); khi bỏ lần gọi đầu của LLM, khoảng **5.263 lần**.
 
 ## 9.2. Giới hạn phép đo
 
@@ -376,23 +376,25 @@ Các đường dẫn ảnh trong báo cáo được viết tương đối với 
 
 # Phụ lục B. Danh mục 15 báo cáo nguồn cần lưu giữ
 
-Danh sách dưới đây được lấy từ kết quả `Get-ChildItem results -Filter *.md` của nhóm. Đây là các bằng chứng theo giai đoạn, **không nên xóa chỉ vì đã có báo cáo tổng hợp**.
+Các báo cáo dưới đây ban đầu nằm trực tiếp trong `results/` (danh sách lấy từ kết quả `Get-ChildItem results -Filter *.md` của nhóm). Sau đó chúng được đổi tên và phân nhóm vào `results/archive/`; riêng bản tổng kết hai tuần là `results/llm_summary.md`. Bảng dưới đối chiếu tên gốc với vị trí hiện tại. Đây là các bằng chứng theo giai đoạn, **không nên xóa chỉ vì đã có báo cáo tổng hợp**.
 
-1. `admin_label_study_week2_day4.md`
-2. `baseline_llm_comparison_week3_day1.md`
-3. `baseline_llm_confusion_week3_day3.md`
-4. `baseline_llm_efficiency_week3_day4.md`
-5. `baseline_llm_shared_errors_week3_day2.md`
-6. `label_analysis_day5.md`
-7. `llm_admin_rights_week2_day3.md`
-8. `llm_error_analysis_v2.md`
-9. `llm_error_analysis_week2_day1.md`
-10. `llm_two_week_summary.md`
-11. `prompt_comparison_day7.md`
-12. `prompt_comparison_week2_day2.md`
-13. `prompt_v3_v5_error_analysis_week2_day6.md`
-14. `prompt_v5_week2_day5.md`
-15. `research_paper_connection_week3_day5.md`
+| # | Tên gốc | Vị trí hiện tại |
+|---:|---|---|
+| 1 | `admin_label_study_week2_day4.md` | `results/archive/2_label_analysis/admin_rights_labels.md` |
+| 2 | `baseline_llm_comparison_week3_day1.md` | `results/archive/3_baseline_vs_llm/comparison.md` |
+| 3 | `baseline_llm_confusion_week3_day3.md` | `results/archive/3_baseline_vs_llm/confusion.md` |
+| 4 | `baseline_llm_efficiency_week3_day4.md` | `results/archive/3_baseline_vs_llm/efficiency.md` |
+| 5 | `baseline_llm_shared_errors_week3_day2.md` | `results/archive/3_baseline_vs_llm/shared_errors.md` |
+| 6 | `label_analysis_day5.md` | `results/archive/2_label_analysis/label_distribution.md` |
+| 7 | `llm_admin_rights_week2_day3.md` | `results/archive/2_label_analysis/admin_rights_errors.md` |
+| 8 | `llm_error_analysis_v2.md` | `results/archive/1_prompt_dev/error_analysis_v2.md` |
+| 9 | `llm_error_analysis_week2_day1.md` | `results/archive/1_prompt_dev/error_analysis_v1_v2.md` |
+| 10 | `llm_two_week_summary.md` | `results/llm_summary.md` |
+| 11 | `prompt_comparison_day7.md` | `results/archive/1_prompt_dev/prompt_v2_v3_summary.md` |
+| 12 | `prompt_comparison_week2_day2.md` | `results/archive/1_prompt_dev/prompt_v2_v3_v4.md` |
+| 13 | `prompt_v3_v5_error_analysis_week2_day6.md` | `results/archive/1_prompt_dev/prompt_v3_v5_errors.md` |
+| 14 | `prompt_v5_week2_day5.md` | `results/archive/1_prompt_dev/prompt_v5.md` |
+| 15 | `research_paper_connection_week3_day5.md` | `results/archive/3_baseline_vs_llm/paper_connection.md` |
 
 # Tài liệu tham khảo
 
