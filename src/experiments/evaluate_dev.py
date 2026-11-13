@@ -1,18 +1,19 @@
 
 import argparse
+import sys
 import time
 from pathlib import Path
 
 import pandas as pd
 from sklearn.metrics import accuracy_score, f1_score, recall_score
-
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from llm_classifier_v2 import classify_ticket as classify_v2
 from llm_classifier import classify_ticket as classify_v3
 from llm_classifier_v4 import classify_ticket as classify_v4
 from llm_classifier_v5 import classify_ticket as classify_v5
 
 # Thiết lập đường dẫn của dự án
-ROOT = Path(__file__).resolve().parent.parent
+ROOT = Path(__file__).resolve().parent.parent.parent
 RESULTS = ROOT / "results"
 
 MODEL_NAME = "qwen2.5:3b"

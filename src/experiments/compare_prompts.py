@@ -9,7 +9,7 @@ from sklearn.metrics import (
 )
 
 # Thiết lập đường dẫn
-ROOT = Path(__file__).resolve().parent.parent
+ROOT = Path(__file__).resolve().parent.parent.parent
 RESULTS = ROOT / "results"
 
 FILE_V2 = RESULTS / "llm_dev_predictions_v2.csv"

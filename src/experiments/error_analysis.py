@@ -2,7 +2,7 @@ from pathlib import Path
 import joblib
 import pandas as pd
 
-ROOT = Path(__file__).resolve().parent.parent
+ROOT = Path(__file__).resolve().parent.parent.parent
 DATA, RES = ROOT / "data", ROOT / "results"
 
 model = joblib.load(RES / "baseline_tfidf_lr.joblib")

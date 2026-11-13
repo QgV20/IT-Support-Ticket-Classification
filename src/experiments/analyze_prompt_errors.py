@@ -4,7 +4,7 @@ from pathlib import Path
 import pandas as pd
 
 # Đường dẫn thư mục gốc và thư mục kết quả
-ROOT = Path(__file__).resolve().parent.parent
+ROOT = Path(__file__).resolve().parent.parent.parent
 RESULTS = ROOT / "results"
 
 # Đọc bảng so sánh Prompt V2 và V3

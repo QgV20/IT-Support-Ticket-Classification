@@ -5,7 +5,7 @@ import re
 import pandas as pd
 
 # Thiết lập đường dẫn
-ROOT = Path(__file__).resolve().parent.parent
+ROOT = Path(__file__).resolve().parent.parent.parent
 DATA = ROOT / "data"
 RESULTS = ROOT / "results"
 

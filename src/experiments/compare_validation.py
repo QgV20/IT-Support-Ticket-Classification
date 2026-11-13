@@ -5,7 +5,7 @@ import pandas as pd
 from sklearn.metrics import f1_score
 
 # Thiết lập đường dẫn kết quả
-ROOT = Path(__file__).resolve().parent.parent
+ROOT = Path(__file__).resolve().parent.parent.parent
 RESULTS = ROOT / "results"
 
 versions = ["v2", "v3", "v4"]

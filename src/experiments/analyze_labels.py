@@ -3,7 +3,7 @@ from pathlib import Path
 import pandas as pd
 
 # Duong dan project
-PROJECT_ROOT = Path(__file__).resolve().parent.parent
+PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
 DATA_FILE = PROJECT_ROOT / "data" / "train.csv"
 RESULTS_DIR = PROJECT_ROOT / "results"
 

@@ -5,7 +5,7 @@ import pandas as pd
 from sklearn.metrics import accuracy_score, f1_score, recall_score
 
 # Thiết lập đường dẫn của dự án
-ROOT = Path(__file__).resolve().parent.parent
+ROOT = Path(__file__).resolve().parent.parent.parent
 RESULTS = ROOT / "results"
 
 FILE_V3 = RESULTS / "llm_validation_predictions_v3.csv"

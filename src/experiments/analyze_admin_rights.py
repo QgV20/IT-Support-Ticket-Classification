@@ -4,7 +4,7 @@ from pathlib import Path
 import pandas as pd
 
 # Thiết lập đường dẫn
-ROOT = Path(__file__).resolve().parent.parent
+ROOT = Path(__file__).resolve().parent.parent.parent
 RESULTS = ROOT / "results"
 
 VERSIONS = ["v2", "v3", "v4"]
