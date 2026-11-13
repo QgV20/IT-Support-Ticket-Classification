@@ -279,17 +279,18 @@ Confusion Matrix LLM có thêm cột `__ERROR__` để ghi nhận một trườn
 
 | Chỉ số | Baseline | LLM V3 |
 |---|---:|---:|
-| Thời gian trung bình/ticket | 0,052 ms | 202,1 ms |
+| Thời gian trung bình/ticket | 0,052 ms | 413,6 ms |
 | Accuracy | 85,75% | 41,00% |
 | Macro F1 | 0,8611 | 0,3729 |
 
 Các thống kê bổ sung của LLM:
 
-- Tổng thời gian đo: 80,854 giây/400 ticket.
-- Trung vị: 178,5 ms/ticket.
-- P95: 245,3 ms/ticket.
-- Ticket đầu tiên: 6,627 giây.
-- Trung bình bỏ ticket đầu: 186,0 ms/ticket.
+- Tổng thời gian đo: 165,440 giây/400 ticket.
+- Trung vị: 258,5 ms/ticket.
+- P95: 380,1 ms/ticket.
+- Ticket đầu tiên: 56,235 giây.
+- Trung bình bỏ ticket đầu: 273,7 ms/ticket.
+- Nguồn: cột `processing_time_seconds` trong `results/llm_final_predictions_v3_400.csv`. Ticket đầu tiên có thể bao gồm thời gian nạp mô hình của Ollama.
 
 Các phép đo không có quy trình benchmark phần cứng được kiểm soát hoàn toàn giống nhau. Vì vậy, các giá trị thời gian chỉ phản ánh điều kiện thực thi đã ghi nhận.
 
