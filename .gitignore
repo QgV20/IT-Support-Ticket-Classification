@@ -8,4 +8,3 @@ venv/
 # Hệ điều hành / IDE
 .DS_Store
 .vscode/
-/src/export_baseline_predictions.py
