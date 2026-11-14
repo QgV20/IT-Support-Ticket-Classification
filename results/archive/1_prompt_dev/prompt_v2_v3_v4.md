@@ -109,8 +109,8 @@ Nhóm cần tiếp tục nghiên cứu những trường hợp Administrative ri
 ## 10. File liên quan
 
 - `src/llm_classifier_v4.py`
-- `src/evaluate_dev.py`
-- `src/compare_validation.py`
+- `src/experiments/evaluate_dev.py`
+- `src/experiments/compare_validation.py`
 - `results/llm_validation_sample160.csv`
 - `results/llm_validation_predictions_v2.csv`
 - `results/llm_validation_predictions_v3.csv`

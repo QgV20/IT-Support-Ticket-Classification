@@ -176,7 +176,7 @@ Nghiên cứu đồng thời chỉ ra những hạn chế của việc phân lo�
 ## 12. File kết quả chính
 
 - `src/llm_classifier.py`
-- `src/llm_classifier_v5.py`
+- `src/experiments/llm_classifier_v5.py`
 - `src/run_llm_batch.py`
 - `src/check_final_test.py`
 - `results/llm_final_predictions_v3_400.csv`
@@ -184,4 +184,4 @@ Nghiên cứu đồng thời chỉ ra những hạn chế của việc phân lo�
 - `results/final_test_integrity_check.csv`
 - `results/llm_validation_predictions_v3.csv`
 - `results/llm_validation_predictions_v5.csv`
-- `results/llm_two_week_summary.md`
+- `results/llm_summary.md`

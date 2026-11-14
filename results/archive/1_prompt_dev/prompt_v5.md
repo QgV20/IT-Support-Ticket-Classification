@@ -113,9 +113,9 @@ Trong giai đoạn tiếp theo, nhóm cần kiểm tra những dự đoán thay 
 
 ## 10. Các file liên quan
 
-- `src/compare_windows_labels.py`
-- `src/llm_classifier_v5.py`
-- `src/evaluate_dev.py`
+- `src/experiments/compare_windows_labels.py`
+- `src/experiments/llm_classifier_v5.py`
+- `src/experiments/evaluate_dev.py`
 - `results/llm_validation_predictions_v3.csv`
 - `results/llm_validation_predictions_v5.csv`
-- `results/prompt_v5_week2_day5.md`
+- `results/prompt_v5.md`

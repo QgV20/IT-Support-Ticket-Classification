@@ -159,7 +159,7 @@ Prompt V5 được giữ lại để ghi nhận kết quả nghiên cứu cải 
 ## 11. Các file liên quan
 
 - `src/llm_classifier.py`
-- `src/llm_classifier_v5.py`
+- `src/experiments/llm_classifier_v5.py`
 - `src/compare_v3_v5.py`
 - `results/llm_validation_predictions_v3.csv`
 - `results/llm_validation_predictions_v5.csv`

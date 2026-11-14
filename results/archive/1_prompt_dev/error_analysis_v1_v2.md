@@ -95,7 +95,7 @@ Do đó, cần tiếp tục phân tích nội dung những ticket bị phân lo�
 
 ## 9. Các file liên quan
 
-- `src/analyze_prompt_errors.py`
+- `src/experiments/analyze_prompt_errors.py`
 - `results/llm_improved_cases.csv`
 - `results/llm_regressed_cases.csv`
 - `results/llm_both_wrong_cases.csv`

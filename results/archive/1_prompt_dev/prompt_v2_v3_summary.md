@@ -91,4 +91,4 @@ Trong giai đoạn tiếp theo, nhóm cần phân tích các trường hợp ph�
 - `results/llm_comparison_v2_v3.csv`
 - `results/llm_experiments/analysis/llm_recall_by_label.csv`
 - `src/evaluate_dev.py`
-- `src/compare_prompts.py`
+- `src/experiments/compare_prompts.py`
