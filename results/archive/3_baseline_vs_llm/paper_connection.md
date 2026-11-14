@@ -139,7 +139,7 @@ Một số cặp nhầm lẫn đáng chú ý:
 ### 5.4. Thời gian dự đoán
 
 - Baseline: 0,052 ms/ticket theo báo cáo gốc.
-- LLM: khoảng 202,1 ms/ticket.
+- LLM: khoảng 413,6 ms/ticket.
 - LLM xử lý hợp lệ: 399/400 ticket.
 
 Hai phép đo thời gian có phương pháp và điều kiện thực thi khác nhau, nên chỉ được sử dụng như bằng chứng mô tả, không phải benchmark phần cứng được kiểm soát.
